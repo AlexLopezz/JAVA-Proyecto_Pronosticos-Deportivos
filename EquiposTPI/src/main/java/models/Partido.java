@@ -1,9 +1,13 @@
 package models;
 
 public class Partido {
+
     private Equipo equipo1;
+
     private Equipo equipo2;
+
     private int golesEquipo1;
+
     private int golesEquipo2;
 
     public Partido(Equipo equipo1, Equipo equipo2, int golesEquipo1, int golesEquipo2) {
@@ -45,6 +49,30 @@ public class Partido {
         this.golesEquipo2 = golesEquipo2;
     }
     public ResultadoEnum resultado(Equipo equipo) {
+
+        if(this.equipo1.equals(equipo)){
+            if(golesEquipo1 == golesEquipo2) {
+                return ResultadoEnum.Empate;
+            }else if(golesEquipo1 > golesEquipo2){
+                return ResultadoEnum.Ganador;
+            }else{
+                return ResultadoEnum.Perdedor;
+            }
+        } else if (this.equipo2.equals(equipo)) {
+            if(golesEquipo2 == golesEquipo1) {
+                return ResultadoEnum.Empate;
+            }else if(golesEquipo2 > golesEquipo1){
+                return ResultadoEnum.Ganador;
+            }else{
+                return ResultadoEnum.Perdedor;
+            }
+        }
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Equipo 1: "+this.equipo1.getNombre()+" Goles: "+this.golesEquipo1+"\n" +
+                "Equipo 2: "+this.equipo2.getNombre()+" Goles: "+this.golesEquipo2;
     }
 }
