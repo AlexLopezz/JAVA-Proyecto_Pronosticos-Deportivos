@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public class Pronostico {
     private Partido partido;
     private Equipo equipo;
@@ -36,5 +38,18 @@ public class Pronostico {
     }
     public int puntos(){
         return 0;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pronostico that = (Pronostico) o;
+        return Objects.equals(partido, that.partido) && Objects.equals(equipo, that.equipo) && resultado == that.resultado;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(partido, equipo, resultado);
     }
 }
