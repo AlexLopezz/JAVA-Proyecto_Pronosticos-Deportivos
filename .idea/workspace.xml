@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34da5f0a-c600-410e-aa86-a4affffa8ce0" name="Changes" comment="" />
+    <list default="true" id="34da5f0a-c600-410e-aa86-a4affffa8ce0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Equipo.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Equipo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Partido.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Partido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/target/classes/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/target/classes/main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/target/classes/models/Equipo.class" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/target/classes/models/Equipo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/target/classes/models/Partido.class" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/target/classes/models/Partido.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,7 +52,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/alexdev/Documents/GitHub/JAVA-Proyecto_Pronosticos-Deportivos&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/JAVA-Proyecto_Pronosticos-Deportivos&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,

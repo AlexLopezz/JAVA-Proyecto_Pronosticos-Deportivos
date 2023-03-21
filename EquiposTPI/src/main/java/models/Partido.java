@@ -72,7 +72,15 @@ public class Partido {
 
     @Override
     public String toString() {
-        return "Equipo 1: "+this.equipo1.getNombre()+" Goles: "+this.golesEquipo1+"\n" +
-                "Equipo 2: "+this.equipo2.getNombre()+" Goles: "+this.golesEquipo2;
+        return "----- Partido -----\n" +
+                this.equipo1 +
+                "\t" +
+                this.golesEquipo1 +
+                "\t" +
+                this.golesEquipo2 +
+                "\t" +
+                this.equipo2;
+
+
     }
 }
