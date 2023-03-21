@@ -7,10 +7,9 @@ public class Pronostico {
     private Equipo equipo;
     private ResultadoEnum resultado;
 
-    public Pronostico(Partido partido, Equipo equipo, ResultadoEnum resultado) {
+    public Pronostico(Partido partido, Equipo equipo) {
         this.partido = partido;
         this.equipo = equipo;
-        this.resultado = resultado;
     }
 
     public Partido getPartido() {
@@ -33,11 +32,17 @@ public class Pronostico {
         return resultado;
     }
 
-    public void setResultado(ResultadoEnum resultado) {
-        this.resultado = resultado;
+    public void setResultado(String resultado1, String resultado2, String resultado3) {
+        if (resultado1.equals("X")){
+            this.resultado = ResultadoEnum.Ganador;
+        } else if (resultado2.equals("X")){
+            this.resultado = ResultadoEnum.Empate;
+        } else {
+            this.resultado = ResultadoEnum.Perdedor;
+        }
     }
     public int puntos(){
-        return 0;
+        return partido.resultado(this.equipo) == this.resultado ? 1 : 0;
     }
 
     @Override

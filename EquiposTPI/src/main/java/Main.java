@@ -1,8 +1,4 @@
-import com.opencsv.exceptions.CsvValidationException;
-import models.Equipo;
-import models.Partido;
-import models.Pronostico;
-import models.ResultadoEnum;
+import models.*;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,66 +8,59 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws IOException, CsvValidationException {
-        Path rutaCSV = Paths.get(System.getProperty("user.dir") + "\\EquiposTPI\\src\\Main\\java\\resources\\pronostico.csv");
-        int aux=0;
-        /*
+    public static void main(String[] args) throws IOException {
+        Path rutaCSV = Paths.get(System.getProperty("user.dir") + "\\EquiposTPI\\src\\Main\\java\\resources\\resultados.csv");
+        Path rutaPronostico = Paths.get(System.getProperty("user.dir") + "\\EquiposTPI\\src\\Main\\java\\resources\\pronostico.csv");
 
-        String partidos = String.valueOf(Files.readAllLines(rutaCSV))
+        int auxResultados = 0;
+        int auxPronostico = 0;
+
+        List<Pronostico> pronosticosArr = new ArrayList<>();
+
+        String archivoResultados = String.valueOf(Files.readAllLines(rutaCSV))
                 .replace("[", "")
                 .replace("]", "")
                 .replace(", ", "\n")
                 .replace(";","\n");
-
-        System.out.println(partidos);
-
-
-        String[] resultados = partidos.split("\n");
-
-        List<Partido> resultadosPartidos = new ArrayList<>();
-
-        for(int i=0; i < resultados.length - aux; i++){
-            resultadosPartidos.add(new Partido(
-                    new Equipo(resultados[aux]),
-                    new Equipo(resultados[aux+3]),
-                    Integer.parseInt(resultados[aux+1]),
-                    Integer.parseInt(resultados[aux+2])
-            ));
-            aux += 4;
-        }
-
-        resultadosPartidos.forEach(System.out::println);
-
-         */
-
-        Equipo arg = new Equipo("Argentina");
-
-        Pronostico pro1 = new Pronostico(new Partido(
-                new Equipo("Argentina"),
-                new Equipo("Arabia Saudita"),
-                1,
-                0
-        ), arg, ResultadoEnum.Ganador);
+        String[] resultados = archivoResultados.split("\n");
 
 
-        String archivoPronostico= String.valueOf(Files.readAllLines(rutaCSV))
+        String archivoPronostico= String.valueOf(Files.readAllLines(rutaPronostico))
                 .replace("[", "")
                 .replace("]", "")
                 .replace(", ", "\n")
                 .replace(";","\n");
-
-
         String[] pronosticos = archivoPronostico.split("\n");
 
-        // [0] = Equipo, [1] Ganador, [2] Empate, [3] Perdedor
-        for(int i=0; i< pronosticos.length - aux; i++){
-            System.out.println(pronosticos[i]);
+        for(int i=0; i < resultados.length - auxResultados; i++){
+            Equipo equipoActual1 = new Equipo(resultados[auxResultados]);
+            Equipo equipoActual2 = new Equipo(resultados[auxResultados+3]);
+            Partido partidoActual = new Partido(
+                    equipoActual1,
+                    equipoActual2,
+                    Integer.parseInt(resultados[auxResultados+1]),
+                    Integer.parseInt(resultados[auxResultados+2])
+            );
 
+            Pronostico pronosticoActual = new Pronostico(
+                    partidoActual,
+                    equipoActual1
+            );
+
+            pronosticoActual.setResultado(
+                    pronosticos[auxPronostico + 1],
+                    pronosticos[auxPronostico + 2],
+                    pronosticos[auxPronostico + 3]
+            );
+
+            System.out.println(pronosticoActual.puntos());
+            pronosticosArr.add(pronosticoActual);
+            auxResultados += 4;
+            auxPronostico += 5;
         }
 
-
-
-
-
+        Persona tino = new Persona("Tino");
+        tino.setPuntaje(pronosticosArr);
+        System.out.println(tino.getPuntaje());
     }
 }
