@@ -6,6 +6,7 @@ import java.util.List;
 public class Persona {
     private String nombre;
     private int puntaje;
+    private List<Pronostico> pronostico;
 
     public Persona(String nombre){
         this.nombre = nombre;

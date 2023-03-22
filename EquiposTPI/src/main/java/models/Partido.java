@@ -80,7 +80,5 @@ public class Partido {
                 this.golesEquipo2 +
                 "\t" +
                 this.equipo2;
-
-
     }
 }

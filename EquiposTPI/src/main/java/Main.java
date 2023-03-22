@@ -32,6 +32,7 @@ public class Main {
                 .replace(";","\n");
         String[] pronosticos = archivoPronostico.split("\n");
 
+        /*
         for(int i=0; i < resultados.length - auxResultados; i++){
             Equipo equipoActual1 = new Equipo(resultados[auxResultados]);
             Equipo equipoActual2 = new Equipo(resultados[auxResultados+3]);
@@ -53,7 +54,6 @@ public class Main {
                     pronosticos[auxPronostico + 3]
             );
 
-            System.out.println(pronosticoActual.puntos());
             pronosticosArr.add(pronosticoActual);
             auxResultados += 4;
             auxPronostico += 5;
@@ -61,6 +61,48 @@ public class Main {
 
         Persona tino = new Persona("Tino");
         tino.setPuntaje(pronosticosArr);
-        System.out.println(tino.getPuntaje());
+         */
+        int pronosticosCantidad = (pronosticos.length/6) / (resultados.length/5);
+        List<Partido> partidosJugados = new ArrayList<Partido>();
+
+        for (int i = 0; i < resultados.length/5; i++){
+            Equipo equipoActual1 = new Equipo(resultados[auxResultados + 1]);
+            Equipo equipoActual2 = new Equipo(resultados[(i * 5)+4]);
+            Partido partidoActual = new Partido(
+                    equipoActual1,
+                    equipoActual2,
+                    Integer.parseInt(resultados[(i * 5)+2]),
+                    Integer.parseInt(resultados[(i * 5)+3])
+            );
+
+            partidosJugados.add(partidoActual);
+        }
+
+        List<Persona> personas = new ArrayList<Persona>();
+        String nombre = "";
+
+        for (int i = 0; i < pronosticos.length/6; i++){
+            if (!nombre.equals("Kevin")){
+                nombre = "Kevin";
+                Persona persona = new Persona(nombre);
+                personas.add(persona);
+            }
+
+            Partido partidoActual = partidosJugados.get(i);
+            Equipo equipoActual = partidoActual.getEquipo1();
+
+            Pronostico pronosticoActual = new Pronostico(
+                    partidoActual,
+                    equipoActual
+            );
+
+            pronosticoActual.setResultado(
+                    pronosticos[(i * 6) + 2],
+                    pronosticos[(i * 6) + 3],
+                    pronosticos[(i * 6) + 4]
+            );
+
+            
+        }
     }
 }
