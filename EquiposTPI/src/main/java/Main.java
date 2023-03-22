@@ -31,41 +31,12 @@ public class Main {
                 .replace(";","\n");
         String[] pronosticos = archivoPronostico.split("\n");
 
-        /*
-        for(int i=0; i < resultados.length - auxResultados; i++){
-            Equipo equipoActual1 = new Equipo(resultados[auxResultados]);
-            Equipo equipoActual2 = new Equipo(resultados[auxResultados+3]);
-            Partido partidoActual = new Partido(
-                    equipoActual1,
-                    equipoActual2,
-                    Integer.parseInt(resultados[auxResultados+1]),
-                    Integer.parseInt(resultados[auxResultados+2])
-            );
-
-            Pronostico pronosticoActual = new Pronostico(
-                    partidoActual,
-                    equipoActual1
-            );
-
-            pronosticoActual.setResultado(
-                    pronosticos[auxPronostico + 1],
-                    pronosticos[auxPronostico + 2],
-                    pronosticos[auxPronostico + 3]
-            );
-
-            pronosticosArr.add(pronosticoActual);
-            auxResultados += 4;
-            auxPronostico += 5;
-        }
-
-        Persona tino = new Persona("Tino");
-        tino.setPuntaje(pronosticosArr);
-         */
+        
         int pronosticosCantidad = (pronosticos.length/6) / (resultados.length/5);
         List<Partido> partidosJugados = new ArrayList<Partido>();
 
         for (int i = 0; i < resultados.length/5; i++){
-            Equipo equipoActual1 = new Equipo(resultados[auxResultados + 1]);
+            Equipo equipoActual1 = new Equipo(resultados[(i * 5) + 1]);
             Equipo equipoActual2 = new Equipo(resultados[(i * 5)+4]);
             Partido partidoActual = new Partido(
                     equipoActual1,
@@ -78,30 +49,35 @@ public class Main {
         }
 
         List<Persona> personas = new ArrayList<Persona>();
-        String nombre = "";
 
-        for (int i = 0; i < pronosticos.length/6; i++){
-            if (!nombre.equals("Kevin")){
-                nombre = "Kevin";
-                Persona persona = new Persona(nombre);
-                personas.add(persona);
+        for (int j = 0; j < pronosticosCantidad; j++){
+            String nombre = pronosticos[(pronosticos.length / pronosticosCantidad) * j];
+            Persona persona = new Persona(nombre);
+            personas.add(persona);
+            List<Pronostico> pronosticoLista = new ArrayList<Pronostico>();
+
+            for (int i = 0; i < pronosticos.length / 6 / pronosticosCantidad; i++) {
+
+                Partido partidoActual = partidosJugados.get(i);
+                Equipo equipoActual = partidoActual.getEquipo1();
+
+                Pronostico pronosticoActual = new Pronostico(
+                        partidoActual,
+                        equipoActual
+                );
+
+                pronosticoActual.setResultado(
+                        pronosticos[(j * (pronosticosCantidad - 1) * pronosticos.length / 6) + (i * 6) + 2],
+                        pronosticos[(j * (pronosticosCantidad - 1) * pronosticos.length / 6) + (i * 6) + 3],
+                        pronosticos[(j * (pronosticosCantidad - 1) * pronosticos.length / 6) + (i * 6) + 4]
+                );
+
+                pronosticoLista.add(pronosticoActual);
             }
 
-            Partido partidoActual = partidosJugados.get(i);
-            Equipo equipoActual = partidoActual.getEquipo1();
-
-            Pronostico pronosticoActual = new Pronostico(
-                    partidoActual,
-                    equipoActual
-            );
-
-            pronosticoActual.setResultado(
-                    pronosticos[(i * 6) + 2],
-                    pronosticos[(i * 6) + 3],
-                    pronosticos[(i * 6) + 4]
-            );
-
-            
+            persona.setPronostico(pronosticoLista);
+            persona.setPuntaje();
+            System.out.println("Puntaje " + persona.getNombre() + ": " + persona.getPuntaje());
         }
     }
 }
