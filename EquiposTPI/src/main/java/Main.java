@@ -24,7 +24,6 @@ public class Main {
                 .replace(";","\n");
         String[] resultados = archivoResultados.split("\n");
 
-
         String archivoPronostico= String.valueOf(Files.readAllLines(rutaPronostico))
                 .replace("[", "")
                 .replace("]", "")
