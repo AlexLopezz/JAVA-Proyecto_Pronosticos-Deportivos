@@ -17,6 +17,11 @@ public class Partido {
         this.golesEquipo2 = golesEquipo2;
     }
 
+    public Partido(Equipo equipo1, Equipo equipo2) {
+        this.equipo1 = equipo1;
+        this.equipo2 = equipo2;
+    }
+
     public Equipo getEquipo1() {
         return equipo1;
     }
@@ -72,14 +77,7 @@ public class Partido {
 
     @Override
     public String toString() {
-        return "----- Partido -----\n" +
-                this.equipo1 +
-                "\t" +
-                this.golesEquipo1 +
-                "\t" +
-                this.golesEquipo2 +
-                "\t" +
-                this.equipo2;
+        return this.equipo1+" vs "+this.equipo2;
 
 
     }

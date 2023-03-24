@@ -1,20 +1,59 @@
 import models.*;
+import repositories.PartidoRepositorio;
+import repositories.PronosticoRepositorio;
+import resources.classUtility.ReadFilesItems;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Path rutaCSV = Paths.get(System.getProperty("user.dir") + "\\EquiposTPI\\src\\Main\\java\\resources\\resultados.csv");
-        Path rutaPronostico = Paths.get(System.getProperty("user.dir") + "\\EquiposTPI\\src\\Main\\java\\resources\\pronostico.csv");
+        //Variables de entrada:
+        String rutaCSV = System.getProperty("user.dir") + "\\EquiposTPI\\src\\Main\\java\\resources\\files\\resultados.csv";
+        PartidoRepositorio partidoRepo = new PartidoRepositorio();
 
-        int auxResultados = 0;
-        int auxPronostico = 0;
 
+        //Instanciamos un objeto de readFiles() para leer el archivo csv, hay que indicarle la ruta para que no dee excepciones:
+        ReadFilesItems rf = new ReadFilesItems(rutaCSV);
+
+        //Obtenemos todos los elementos del archivo csv en un arreglo de strings.
+        String[] getFileItems = rf.getFileItems();
+
+        //Almacenamos la lista de partidos:
+        List<Partido> partidosResultados = partidoRepo.getItems(getFileItems);
+
+        //Creamos una instancia ronda, para almacenar todos los resultados de los partidos:
+        Ronda ronda1 = new Ronda("1", partidosResultados.toArray(new Partido[0]));
+
+        //Verificamos:
+        System.out.println(ronda1);
+
+
+        //Variables de entrada:
+        String rutaPronostico = System.getProperty("user.dir") + "\\EquiposTPI\\src\\Main\\java\\resources\\files\\pronostico.csv";
+        PronosticoRepositorio pronosticoRepo = new PronosticoRepositorio();
+
+        //Modificamos la rutaCSV para obtener los datos de otro archivo
+        rf.setRutaCSV(rutaPronostico);
+
+        Persona alex = new Persona("Alex");
+        List<Pronostico> pronosticoFile = pronosticoRepo.getItems(rf.getFileItems());
+
+        alex.setPronostico(pronosticoFile.toArray(pronosticoFile.toArray(new Pronostico[0])));
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
         List<Pronostico> pronosticosArr = new ArrayList<>();
 
         String archivoResultados = String.valueOf(Files.readAllLines(rutaCSV))
@@ -62,5 +101,8 @@ public class Main {
         Persona tino = new Persona("Tino");
         tino.setPuntaje(pronosticosArr);
         System.out.println(tino.getPuntaje());
+    }
+
+         */
     }
 }

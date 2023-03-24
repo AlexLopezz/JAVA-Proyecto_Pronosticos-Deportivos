@@ -6,9 +6,15 @@ import java.util.List;
 public class Persona {
     private String nombre;
     private int puntaje;
+    private Pronostico[] pronostico;
 
     public Persona(String nombre){
         this.nombre = nombre;
+    }
+
+    public Persona(String nombre, Pronostico[] pronostico) {
+        this.nombre = nombre;
+        this.pronostico = pronostico;
     }
 
     public String getNombre() {
@@ -29,5 +35,9 @@ public class Persona {
             suma += pronostico.puntos();
         }
         this.puntaje = suma;
+    }
+
+    public void setPronostico(Pronostico[] pronostico) {
+        this.pronostico = pronostico;
     }
 }

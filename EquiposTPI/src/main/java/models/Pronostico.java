@@ -12,6 +12,17 @@ public class Pronostico {
         this.equipo = equipo;
     }
 
+    public Pronostico(Partido partido, Equipo equipo, ResultadoEnum resultado) {
+        this.partido = partido;
+        this.equipo = equipo;
+        this.resultado = resultado;
+    }
+
+    public Pronostico(Equipo equipo, ResultadoEnum resultado) {
+        this.equipo = equipo;
+        this.resultado = resultado;
+    }
+
     public Partido getPartido() {
         return partido;
     }
@@ -41,8 +52,13 @@ public class Pronostico {
             this.resultado = ResultadoEnum.Perdedor;
         }
     }
+
+    public void setResultado(ResultadoEnum resultado) {
+        this.resultado = resultado;
+    }
+
     public int puntos(){
-        return partido.resultado(this.equipo) == this.resultado ? 1 : 0;
+        return
     }
 
     @Override
@@ -56,5 +72,14 @@ public class Pronostico {
     @Override
     public int hashCode() {
         return Objects.hash(partido, equipo, resultado);
+    }
+
+    @Override
+    public String toString() {
+        return "Pronostico{" +
+                "partido=" + partido +
+                ", equipo=" + equipo +
+                ", resultado=" + resultado +
+                '}';
     }
 }
