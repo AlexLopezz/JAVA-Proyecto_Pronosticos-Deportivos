@@ -37,7 +37,7 @@ public class Main {
         
         int puntosTotales = pronosticoRepo.puntajePronostico(pronosticoFile, partidosResultados);
 
-        System.out.println("Puntos totales del pronostico: "+ puntosTotales);
+        System.out.println("Puntos totales obtenidos por el acierto de los pronosticos: "+ puntosTotales);
 
         /*
         List<Pronostico> pronosticosArr = new ArrayList<>();
