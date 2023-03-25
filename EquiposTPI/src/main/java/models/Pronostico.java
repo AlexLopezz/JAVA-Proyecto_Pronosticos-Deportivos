@@ -1,5 +1,6 @@
 package models;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Pronostico {
@@ -57,8 +58,22 @@ public class Pronostico {
         this.resultado = resultado;
     }
 
-    public int puntos(){
-        return
+    public int puntos(List<Partido> partidos){
+        int puntos = 0;
+        for(Partido partido : partidos){
+            if(this.partido.equals(partido)) {
+                if(this.equipo.equals(partido.getEquipo1())){
+                    if(this.resultado.equals(partido.resultado(partido.getEquipo1()))){
+                        puntos++;
+                    }
+                }else if(this.equipo.equals(partido.getEquipo2())){
+                    if(this.resultado.equals(partido.resultado(partido.getEquipo2()))){
+                        puntos++;
+                    }
+                }
+            }
+        }
+        return puntos;
     }
 
     @Override

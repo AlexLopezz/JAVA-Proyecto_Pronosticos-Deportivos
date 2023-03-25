@@ -29,14 +29,6 @@ public class Persona {
         return puntaje;
     }
 
-    public void setPuntaje(List<Pronostico> pronosticos) {
-        int suma = 0;
-        for (Pronostico pronostico : pronosticos){
-            suma += pronostico.puntos();
-        }
-        this.puntaje = suma;
-    }
-
     public void setPronostico(Pronostico[] pronostico) {
         this.pronostico = pronostico;
     }

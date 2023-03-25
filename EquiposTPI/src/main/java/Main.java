@@ -19,14 +19,9 @@ public class Main {
         //Obtenemos todos los elementos del archivo csv en un arreglo de strings.
         String[] getFileItems = rf.getFileItems();
 
-        //Almacenamos la lista de partidos:
+        //Almacenamos la lista de partidos a traves del repositorio:
         List<Partido> partidosResultados = partidoRepo.getItems(getFileItems);
-
-        //Creamos una instancia ronda, para almacenar todos los resultados de los partidos:
-        Ronda ronda1 = new Ronda("1", partidosResultados.toArray(new Partido[0]));
-
-        //Verificamos:
-        System.out.println(ronda1);
+        partidosResultados.forEach(System.out::println);
 
 
         //Variables de entrada:
@@ -36,22 +31,13 @@ public class Main {
         //Modificamos la rutaCSV para obtener los datos de otro archivo
         rf.setRutaCSV(rutaPronostico);
 
-        Persona alex = new Persona("Alex");
         List<Pronostico> pronosticoFile = pronosticoRepo.getItems(rf.getFileItems());
 
-        alex.setPronostico(pronosticoFile.toArray(pronosticoFile.toArray(new Pronostico[0])));
+        pronosticoFile.forEach(System.out::println);
+        
+        int puntosTotales = pronosticoRepo.puntajePronostico(pronosticoFile, partidosResultados);
 
-
-
-
-
-
-
-
-
-
-
-
+        System.out.println("Puntos totales del pronostico: "+ puntosTotales);
 
         /*
         List<Pronostico> pronosticosArr = new ArrayList<>();

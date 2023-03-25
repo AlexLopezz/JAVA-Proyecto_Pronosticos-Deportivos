@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public class Partido {
 
     private Equipo equipo1;
@@ -73,6 +75,15 @@ public class Partido {
             }
         }
         return null;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof Partido partido) {
+            return this.equipo1.equals(partido.getEquipo1()) && this.equipo2.equals(partido.getEquipo2());
+        }else {
+            return false;
+        }
     }
 
     @Override

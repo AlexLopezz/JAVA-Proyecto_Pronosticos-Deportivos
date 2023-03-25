@@ -48,16 +48,11 @@ public class PronosticoRepositorio implements Convertible<Pronostico> {
     }
 
     public int puntajePronostico(List<Pronostico> pronosticos, List<Partido> partidos){
-        for (Pronostico pronostico : pronosticos){
-            for(Partido partido : partidos){
-                if(pronostico.getPartido().equals(partido)){
-                    if(pronostico.getEquipo().equals(partido.getEquipo1())) {
-                        if (pronostico.getResultado().equals(partido.resultado(partido.getEquipo1()))) {
-                            pronostico.set
-                        }
-                    }
-                }
-            }
+       int puntos = 0;
+        for( Pronostico p : pronosticos){
+            puntos += p.puntos(partidos);
         }
+        return puntos;
     }
+
 }
