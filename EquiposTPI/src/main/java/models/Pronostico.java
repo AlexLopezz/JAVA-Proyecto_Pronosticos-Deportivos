@@ -85,11 +85,6 @@ public class Pronostico {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(partido, equipo, resultado);
-    }
-
-    @Override
     public String toString() {
         return "Pronostico{" +
                 "partido=" + partido +

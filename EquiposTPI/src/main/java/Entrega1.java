@@ -6,10 +6,10 @@ import resources.classUtility.ReadFilesItems;
 import java.io.IOException;
 import java.util.List;
 
-public class Main {
+public class Entrega1 {
     public static void main(String[] args) throws IOException {
         //Variables de entrada:
-        String rutaCSV = System.getProperty("user.dir") + "\\EquiposTPI\\src\\Main\\java\\resources\\files\\resultados.csv";
+        String rutaCSV = System.getProperty("user.dir") + "\\EquiposTPI\\src\\Main\\java\\resources\\files\\entrega1\\resultados.csv";
         PartidoRepositorio partidoRepo = new PartidoRepositorio();
 
 
@@ -25,7 +25,7 @@ public class Main {
 
 
         //Variables de entrada:
-        String rutaPronostico = System.getProperty("user.dir") + "\\EquiposTPI\\src\\Main\\java\\resources\\files\\pronostico.csv";
+        String rutaPronostico = System.getProperty("user.dir") + "\\EquiposTPI\\src\\Main\\java\\resources\\files\\entrega1\\pronostico.csv";
         PronosticoRepositorio pronosticoRepo = new PronosticoRepositorio();
 
         //Modificamos la rutaCSV para obtener los datos de otro archivo

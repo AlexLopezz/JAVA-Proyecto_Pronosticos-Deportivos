@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34da5f0a-c600-410e-aa86-a4affffa8ce0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/Entrega2.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/Entrega2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/Entrega1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Pronostico.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Pronostico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/resources/files/pronostico.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/resources/files/entrega1/pronostico.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/resources/files/resultados.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/resources/files/entrega1/resultados.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +62,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JAVA-Proyecto_Pronosticos-Deportivos\EquiposTPI\src\main\java\resources\files\entrega1" />
       <recent name="D:\JAVA-Proyecto_Pronosticos-Deportivos\EquiposTPI\src\main\java\resources\files" />
     </key>
   </component>
@@ -70,16 +76,5 @@
       <updated>1678717840480</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/EquiposTPI/src/main/java/models/Pronostico.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
