@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34da5f0a-c600-410e-aa86-a4affffa8ce0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Equipo.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Equipo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Partido.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Partido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Persona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Pronostico.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Pronostico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/repositories/PronosticoRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/repositories/PronosticoRepositorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/resources/files/pronostico.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/resources/files/pronostico.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/resources/files/resultados.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/resources/files/resultados.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
