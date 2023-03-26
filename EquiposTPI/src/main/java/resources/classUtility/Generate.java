@@ -16,10 +16,10 @@ public class Generate {
     }
 
     public static Pronostico generatePronostico(String[] dataPronostico) {
-        return new Pronostico(new Partido(new Equipo(dataPronostico[1]),
-                                          new Equipo(dataPronostico[5])),
+        return new Pronostico(new Partido(new Equipo(dataPronostico[0]),
+                                          new Equipo(dataPronostico[1])),
                               new Equipo(dataPronostico[0]),
                               PronosticoRepositorio.checkStadistics(dataPronostico[2],
-                                                      dataPronostico[4]));
+                                                      dataPronostico[3]));
     };
 }

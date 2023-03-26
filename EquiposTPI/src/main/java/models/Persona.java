@@ -42,10 +42,8 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" +
-                "nombre='" + nombre + '\'' +
-                ", pronosticos=" + pronosticos +
-                '}';
+        return "nombre='" + nombre + '\'' +
+                "\npronosticos=" + pronosticos +"\n";
     }
 
     public List<Pronostico> getPronostico() {

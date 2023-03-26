@@ -24,6 +24,9 @@ public class Pronostico {
         this.resultado = resultado;
     }
 
+    public Pronostico() {
+    }
+
     public Partido getPartido() {
         return partido;
     }
