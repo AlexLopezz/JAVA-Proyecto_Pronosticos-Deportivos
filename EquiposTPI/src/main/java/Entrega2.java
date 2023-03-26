@@ -14,16 +14,15 @@ public class Entrega2 {
         ReadFilesItems rf = new ReadFilesItems(resultadosCSV);
 
         List<Ronda> rondas = rd.getItems(rf.getFileItems());
-
         System.out.println(rondas);
 
         PersonaRepositorio pr = new PersonaRepositorio();
         String pronosticosCSV = System.getProperty("user.dir")+"\\EquiposTPI\\src\\Main\\java\\resources\\files\\\\entrega2\\pronosticos.csv";
         rf.setRutaCSV(pronosticosCSV);
 
+        /* Aun no funciona :(
         List<Persona> personas = pr.getItems(rf.getFileItems());
-
         System.out.println(personas);
-
+         */
     }
 }

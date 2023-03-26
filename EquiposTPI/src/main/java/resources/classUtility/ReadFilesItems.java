@@ -23,6 +23,11 @@ public class ReadFilesItems {
 
     public String[] getFileItems() throws IOException {
         if(rutaCSV != null){
+            //Para que la ruta me lea correctamente en sistemas operativos linux, debemos formatear la ruta.
+            if(System.getProperty("os.name").equals("Linux")){
+                this.rutaCSV = this.rutaCSV.replace("\\","/")
+                        .replace("Main","main");
+            }
             return  String.valueOf(Files.readAllLines(Paths.get(rutaCSV)))
                     .replace("[", "")
                     .replace("]", "")

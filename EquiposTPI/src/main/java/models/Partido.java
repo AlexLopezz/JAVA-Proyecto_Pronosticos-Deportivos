@@ -88,7 +88,7 @@ public class Partido {
 
     @Override
     public String toString() {
-        return this.equipo1+" vs "+this.equipo2;
+        return "["+this.equipo1+"("+this.golesEquipo1+") vs ("+this.golesEquipo2+")"+this.equipo2+"]";
 
 
     }

@@ -9,7 +9,7 @@ import java.util.List;
 public class Entrega1 {
     public static void main(String[] args) throws IOException {
         //Variables de entrada:
-        String rutaCSV = System.getProperty("user.dir") + "\\EquiposTPI\\src\\Main\\java\\resources\\files\\entrega1\\resultados.csv";
+        String rutaCSV = System.getProperty("user.dir") + "\\EquiposTPI\\src\\main\\java\\resources\\files\\entrega1\\resultados.csv";
         PartidoRepositorio partidoRepo = new PartidoRepositorio();
 
 
@@ -21,11 +21,12 @@ public class Entrega1 {
 
         //Almacenamos la lista de partidos a traves del repositorio:
         List<Partido> partidosResultados = partidoRepo.getItems(getFileItems);
+        System.out.println("* Resultado de los partidos - archivo .csv: ");
         partidosResultados.forEach(System.out::println);
 
 
         //Variables de entrada:
-        String rutaPronostico = System.getProperty("user.dir") + "\\EquiposTPI\\src\\Main\\java\\resources\\files\\entrega1\\pronostico.csv";
+        String rutaPronostico = System.getProperty("user.dir") + "\\EquiposTPI\\src\\main\\java\\resources\\files\\entrega1\\pronostico.csv";
         PronosticoRepositorio pronosticoRepo = new PronosticoRepositorio();
 
         //Modificamos la rutaCSV para obtener los datos de otro archivo
@@ -33,11 +34,12 @@ public class Entrega1 {
 
         List<Pronostico> pronosticoFile = pronosticoRepo.getItems(rf.getFileItems());
 
+        System.out.println("\n*Pronosticos - Archivo .csv: ");
         pronosticoFile.forEach(System.out::println);
         
         int puntosTotales = pronosticoRepo.puntajePronostico(pronosticoFile, partidosResultados);
 
-        System.out.println("Puntos totales obtenidos por el acierto de los pronosticos: "+ puntosTotales);
+        System.out.println("> Puntos totales obtenidos por el acierto de los pronosticos: "+ puntosTotales);
 
         /*
         List<Pronostico> pronosticosArr = new ArrayList<>();
