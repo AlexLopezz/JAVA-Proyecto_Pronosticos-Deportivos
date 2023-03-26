@@ -7,10 +7,13 @@
     <list default="true" id="34da5f0a-c600-410e-aa86-a4affffa8ce0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/Entrega2.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/Entrega2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/Entrega1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Persona.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Pronostico.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Pronostico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/resources/files/pronostico.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/resources/files/entrega1/pronostico.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/resources/files/resultados.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/resources/files/entrega1/resultados.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/repositories/PronosticoRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/repositories/PronosticoRepositorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/target/classes/Entrega2.class" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/target/classes/Entrega2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/target/classes/models/Persona.class" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/target/classes/models/Persona.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/target/classes/models/Pronostico.class" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/target/classes/models/Pronostico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/target/classes/repositories/PronosticoRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/target/classes/repositories/PronosticoRepositorio.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

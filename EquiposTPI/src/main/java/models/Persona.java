@@ -6,15 +6,19 @@ import java.util.List;
 public class Persona {
     private String nombre;
     private int puntaje;
-    private Pronostico[] pronostico;
+    private List<Pronostico> pronosticos;
 
     public Persona(String nombre){
         this.nombre = nombre;
+        this.pronosticos = new ArrayList<>();
+    }
+    public Persona(){
+        this.pronosticos = new ArrayList<>();
     }
 
-    public Persona(String nombre, Pronostico[] pronostico) {
+    public Persona(String nombre, List<Pronostico> pronostico) {
         this.nombre = nombre;
-        this.pronostico = pronostico;
+        this.pronosticos = pronostico;
     }
 
     public String getNombre() {
@@ -29,7 +33,19 @@ public class Persona {
         return puntaje;
     }
 
-    public void setPronostico(Pronostico[] pronostico) {
-        this.pronostico = pronostico;
+    public void setPronostico(List<Pronostico> pronostico) {
+        this.pronosticos = pronostico;
+    }
+
+    public void addPronostico (Pronostico pronostico){
+        this.pronosticos.add(pronostico);
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + nombre + '\'' +
+                ", pronosticos=" + pronosticos +
+                '}';
     }
 }

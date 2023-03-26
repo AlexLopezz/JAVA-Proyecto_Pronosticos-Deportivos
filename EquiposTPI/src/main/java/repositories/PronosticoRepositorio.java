@@ -37,7 +37,7 @@ public class PronosticoRepositorio implements Convertible<Pronostico> {
         return auxPronosticos;
     }
 
-    private ResultadoEnum checkStadistics (String item, String item2){
+    public static ResultadoEnum checkStadistics (String item, String item2){
         if(item.equalsIgnoreCase("X")){
             return ResultadoEnum.Ganador;
         }else if(item2.equalsIgnoreCase("X")){

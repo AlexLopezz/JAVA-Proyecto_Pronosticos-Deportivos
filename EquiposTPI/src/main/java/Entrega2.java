@@ -1,4 +1,6 @@
+import models.Persona;
 import models.Ronda;
+import repositories.PersonaRepositorio;
 import repositories.RondaRepositorio;
 import resources.classUtility.ReadFilesItems;
 
@@ -15,8 +17,13 @@ public class Entrega2 {
 
         System.out.println(rondas);
 
+        PersonaRepositorio pr = new PersonaRepositorio();
+        String pronosticosCSV = System.getProperty("user.dir")+"\\EquiposTPI\\src\\Main\\java\\resources\\files\\\\entrega2\\pronosticos.csv";
+        rf.setRutaCSV(pronosticosCSV);
 
-        
-        
+        List<Persona> personas = pr.getItems(rf.getFileItems());
+
+        System.out.println(personas);
+
     }
 }
