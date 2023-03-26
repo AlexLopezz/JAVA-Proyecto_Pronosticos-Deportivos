@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public class Equipo {
 
     private String nombre;
@@ -23,5 +25,19 @@ public class Equipo {
     @Override
     public String toString() {
         return this.nombre;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if( o instanceof Equipo equipo) {
+            return Objects.equals(nombre, equipo.nombre);
+        }else {
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre);
     }
 }

@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34da5f0a-c600-410e-aa86-a4affffa8ce0" name="Changes" comment="" />
+    <list default="true" id="34da5f0a-c600-410e-aa86-a4affffa8ce0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/Entrega2.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/Entrega2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/repositories/RondaRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/repositories/RondaRepositorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/target/classes/Entrega2.class" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/target/classes/Entrega2.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="package-info" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -52,9 +58,19 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+<<<<<<< HEAD
     &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+=======
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+>>>>>>> alex
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JAVA-Proyecto_Pronosticos-Deportivos\EquiposTPI\src\main\java\resources\files\entrega1" />
+      <recent name="D:\JAVA-Proyecto_Pronosticos-Deportivos\EquiposTPI\src\main\java\resources\files" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

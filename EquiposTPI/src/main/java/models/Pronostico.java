@@ -1,5 +1,6 @@
 package models;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Pronostico {
@@ -10,6 +11,17 @@ public class Pronostico {
     public Pronostico(Partido partido, Equipo equipo) {
         this.partido = partido;
         this.equipo = equipo;
+    }
+
+    public Pronostico(Partido partido, Equipo equipo, ResultadoEnum resultado) {
+        this.partido = partido;
+        this.equipo = equipo;
+        this.resultado = resultado;
+    }
+
+    public Pronostico(Equipo equipo, ResultadoEnum resultado) {
+        this.equipo = equipo;
+        this.resultado = resultado;
     }
 
     public Partido getPartido() {
@@ -41,8 +53,27 @@ public class Pronostico {
             this.resultado = ResultadoEnum.Perdedor;
         }
     }
-    public int puntos(){
-        return partido.resultado(this.equipo) == this.resultado ? 1 : 0;
+
+    public void setResultado(ResultadoEnum resultado) {
+        this.resultado = resultado;
+    }
+
+    public int puntos(List<Partido> partidos){
+        int puntos = 0;
+        for(Partido partido : partidos){
+            if(this.partido.equals(partido)) {
+                if(this.equipo.equals(partido.getEquipo1())){
+                    if(this.resultado.equals(partido.resultado(partido.getEquipo1()))){
+                        puntos++;
+                    }
+                }else if(this.equipo.equals(partido.getEquipo2())){
+                    if(this.resultado.equals(partido.resultado(partido.getEquipo2()))){
+                        puntos++;
+                    }
+                }
+            }
+        }
+        return puntos;
     }
 
     @Override
@@ -54,7 +85,9 @@ public class Pronostico {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(partido, equipo, resultado);
+    public String toString() {
+        return "partido= [" +partido.getEquipo1() +" vs " +partido.getEquipo2()+" ]"+
+                "\nequipo=" + equipo +
+                "\nresultado=" + resultado;
     }
 }

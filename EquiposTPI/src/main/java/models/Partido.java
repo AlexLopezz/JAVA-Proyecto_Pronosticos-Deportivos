@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public class Partido {
 
     private Equipo equipo1;
@@ -15,6 +17,11 @@ public class Partido {
         this.equipo2 = equipo2;
         this.golesEquipo1 = golesEquipo1;
         this.golesEquipo2 = golesEquipo2;
+    }
+
+    public Partido(Equipo equipo1, Equipo equipo2) {
+        this.equipo1 = equipo1;
+        this.equipo2 = equipo2;
     }
 
     public Equipo getEquipo1() {
@@ -71,7 +78,17 @@ public class Partido {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if(o instanceof Partido partido) {
+            return this.equipo1.equals(partido.getEquipo1()) && this.equipo2.equals(partido.getEquipo2());
+        }else {
+            return false;
+        }
+    }
+
+    @Override
     public String toString() {
+<<<<<<< HEAD
         return "----- Partido -----\n" +
                 this.equipo1 +
                 "\t" +
@@ -80,5 +97,10 @@ public class Partido {
                 this.golesEquipo2 +
                 "\t" +
                 this.equipo2;
+=======
+        return "["+this.equipo1+"("+this.golesEquipo1+") vs ("+this.golesEquipo2+")"+this.equipo2+"]";
+
+
+>>>>>>> alex
     }
 }
