@@ -4,6 +4,7 @@ import interfaces.Convertible;
 import models.Equipo;
 import models.Partido;
 import models.Ronda;
+import resources.classUtility.Generate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ public class RondaRepositorio implements Convertible<Ronda> {
                         itemsFile[aux+2],
                         itemsFile[aux+3]
                 };
-                partidoActual = generatePartido(data);
+                partidoActual = Generate.generatePartido(data);
             } else {
                 nroRonda = itemsFile[aux];
                 rondaActual = new Ronda((nroRonda));
@@ -37,7 +38,7 @@ public class RondaRepositorio implements Convertible<Ronda> {
                         itemsFile[aux+2],
                         itemsFile[aux+3]
                 };
-                partidoActual = generatePartido(data);
+                partidoActual = Generate.generatePartido(data);
             }
 
 
@@ -45,15 +46,6 @@ public class RondaRepositorio implements Convertible<Ronda> {
             aux += 5;
         }
         return auxRonda;
-    }
-
-    private Partido generatePartido(String[] dataPartido){
-        return new Partido(
-                new Equipo(dataPartido[0]),
-                new Equipo(dataPartido[1]),
-                Integer.parseInt(dataPartido[2]),
-                Integer.parseInt(dataPartido[3])
-        );
     }
 }
 
