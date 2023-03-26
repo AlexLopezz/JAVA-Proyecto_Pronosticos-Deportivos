@@ -11,13 +11,14 @@ import java.util.List;
 public class RondaRepositorio implements Convertible<Ronda> {
     @Override
     public List<Ronda> getItems(String[] itemsFile) {
-        String nroRonda = itemsFile[0];
+        String nroRonda = "-1";
         List<Ronda> auxRonda = new ArrayList<>();
-        List<Partido> auxPartidos = new ArrayList<>();
+        Partido partidoActual;
+        Ronda rondaActual = new Ronda("-1");
         int aux = 0;
 
 
-        for (int i = 0; i < itemsFile.length - aux; i++) {
+        for (int i = 0; i < itemsFile.length / 5; i++) {
             if (itemsFile[aux].equals(nroRonda)) {
                 String[] data = {
                         itemsFile[aux+1],
@@ -25,39 +26,33 @@ public class RondaRepositorio implements Convertible<Ronda> {
                         itemsFile[aux+2],
                         itemsFile[aux+3]
                 };
-                addPartidoList(auxPartidos, data);
-                auxRonda.add(
-                        new Ronda(
-                                nroRonda, auxPartidos.toArray(new Partido[0]))
-                );
+                partidoActual = generatePartido(data);
             } else {
                 nroRonda = itemsFile[aux];
-                auxPartidos.clear();
+                rondaActual = new Ronda((nroRonda));
+                auxRonda.add(rondaActual);
                 String[] data = {
                         itemsFile[aux+1],
                         itemsFile[aux+4],
                         itemsFile[aux+2],
                         itemsFile[aux+3]
                 };
-                addPartidoList(auxPartidos, data);
-                auxRonda.add(
-                        new Ronda(
-                                nroRonda,  auxPartidos.toArray(new Partido[0]))
-                );
+                partidoActual = generatePartido(data);
             }
+
+
+            rondaActual.addPartido(partidoActual);
             aux += 5;
         }
         return auxRonda;
     }
 
-    private void addPartidoList (List<Partido> auxPartidos, String[] dataPartido ){
-        auxPartidos.add(
-                new Partido(
-                    new Equipo(dataPartido[0]),
-                    new Equipo(dataPartido[1]),
-                    Integer.parseInt(dataPartido[2]),
-                    Integer.parseInt(dataPartido[3])
-                )
+    private Partido generatePartido(String[] dataPartido){
+        return new Partido(
+                new Equipo(dataPartido[0]),
+                new Equipo(dataPartido[1]),
+                Integer.parseInt(dataPartido[2]),
+                Integer.parseInt(dataPartido[3])
         );
     }
 }

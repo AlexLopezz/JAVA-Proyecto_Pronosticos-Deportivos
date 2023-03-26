@@ -6,11 +6,9 @@ import java.util.List;
 public class Persona {
     private String nombre;
     private int puntaje;
-<<<<<<< HEAD
-    private List<Pronostico> pronostico;
-=======
+
     private List<Pronostico> pronosticos;
->>>>>>> alex
+
 
     public Persona(String nombre){
         this.nombre = nombre;
@@ -37,17 +35,6 @@ public class Persona {
         return puntaje;
     }
 
-<<<<<<< HEAD
-    public void setPuntaje() {
-        int suma = 0;
-        for (Pronostico pronostico : this.pronostico){
-            suma += pronostico.puntos();
-        }
-        this.puntaje = suma;
-=======
-    public void setPronostico(List<Pronostico> pronostico) {
-        this.pronosticos = pronostico;
-    }
 
     public void addPronostico (Pronostico pronostico){
         this.pronosticos.add(pronostico);
@@ -59,14 +46,13 @@ public class Persona {
                 "nombre='" + nombre + '\'' +
                 ", pronosticos=" + pronosticos +
                 '}';
->>>>>>> alex
     }
 
     public List<Pronostico> getPronostico() {
-        return pronostico;
+        return this.pronosticos;
     }
 
     public void setPronostico(List<Pronostico> pronostico) {
-        this.pronostico = pronostico;
+        this.pronosticos = pronostico;
     }
 }

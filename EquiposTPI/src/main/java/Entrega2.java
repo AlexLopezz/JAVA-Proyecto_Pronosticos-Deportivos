@@ -15,7 +15,9 @@ public class Entrega2 {
 
 
         List<Ronda> rondas = rd.getItems(rf.getFileItems());
-        System.out.println(rondas);
+        for (Ronda r : rondas){
+            System.out.println(r.getPartidos());
+        }
 
         PersonaRepositorio pr = new PersonaRepositorio();
         String pronosticosCSV = System.getProperty("user.dir")+"\\EquiposTPI\\src\\Main\\java\\resources\\files\\\\entrega2\\pronosticos.csv";
