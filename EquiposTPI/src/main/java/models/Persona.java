@@ -35,6 +35,9 @@ public class Persona {
         return puntaje;
     }
 
+    public void setPuntaje(int puntaje) {
+        this.puntaje += puntaje;
+    }
 
     public void addPronostico (Pronostico pronostico){
         this.pronosticos.add(pronostico);
@@ -42,8 +45,10 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "nombre='" + nombre + '\'' +
-                "\npronosticos=" + pronosticos +"\n";
+        return "Persona: "+this.nombre+
+                "\nPronosticos: "+ this.pronosticos+
+                "\nPuntaje total de aciertos: "+ this.puntaje+
+                "\n*********************";
     }
 
     public List<Pronostico> getPronostico() {
