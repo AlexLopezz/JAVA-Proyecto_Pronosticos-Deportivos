@@ -62,6 +62,7 @@ public class Pronostico {
     }
 
     public int puntos(List<Partido> partidos){
+        //Evalua los partidos junto a sus pronosticos y devuelve el puntaje obtenido.
         int puntos = 0;
         for(Partido partido : partidos){
             if(this.partido.equals(partido)) {

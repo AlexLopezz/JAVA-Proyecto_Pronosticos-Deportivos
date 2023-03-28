@@ -35,9 +35,4 @@ public class Equipo {
             return false;
         }
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nombre);
-    }
 }

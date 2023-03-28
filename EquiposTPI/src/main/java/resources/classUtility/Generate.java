@@ -5,7 +5,10 @@ import models.Partido;
 import models.Pronostico;
 import repositories.PronosticoRepositorio;
 
+//Clase utilizada para generar algunos objetos de manera sencilla a partir de un array de strings.
 public class Generate {
+
+    //Generar un partido.
     public static Partido generatePartido(String[] dataPartido) {
         return new Partido(
                 new Equipo(dataPartido[0]),
@@ -15,6 +18,7 @@ public class Generate {
         );
     }
 
+    //Generar un pronostico.
     public static Pronostico generatePronostico(String[] dataPronostico) {
         return new Pronostico(new Partido(new Equipo(dataPronostico[0]),
                                           new Equipo(dataPronostico[1])),

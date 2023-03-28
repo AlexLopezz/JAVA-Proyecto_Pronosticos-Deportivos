@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="434e4fa7-1075-45c4-9141-4c884d060ec4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/Entrega2.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/Entrega2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Persona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/repositories/PersonaRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/repositories/PersonaRepositorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/repositories/RondaRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/repositories/RondaRepositorio.java" afterDir="false" />
-    </list>
+    <list default="true" id="434e4fa7-1075-45c4-9141-4c884d060ec4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

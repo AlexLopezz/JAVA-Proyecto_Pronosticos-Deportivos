@@ -9,24 +9,22 @@ import java.util.List;
 
 public class Entrega2 {
     public static void main(String[] args) throws IOException {
+        //Inicializamos las variables de entradas.
         RondaRepositorio rd = new RondaRepositorio();
-        String resultadosCSV = System.getProperty("user.dir")+"\\EquiposTPI\\src\\Main\\java\\resources\\files\\\\entrega2\\resultados.csv";
-        ReadFilesItems rf = new ReadFilesItems(resultadosCSV);
-
-
-
-
-        List<Ronda> rondas = rd.getItems(rf.getFileItems());
-        System.out.println(rondas);
-
-
         PersonaRepositorio pr = new PersonaRepositorio();
-        String pronosticosCSV = System.getProperty("user.dir")+"\\EquiposTPI\\src\\Main\\java\\resources\\files\\\\entrega2\\pronosticos.csv";
-        rf.setRutaCSV(pronosticosCSV);
 
+        //Obtenemos el path de los archivos.
+        String resultadosCSV = System.getProperty("user.dir")+"\\EquiposTPI\\src\\Main\\java\\resources\\files\\\\entrega2\\resultados.csv";
+        String pronosticosCSV = System.getProperty("user.dir")+"\\EquiposTPI\\src\\Main\\java\\resources\\files\\\\entrega2\\pronosticos.csv";
+
+        //Leemos y guardamos los datos leídos de los archivos de pronosticos y resultados en las variables de ronda y personas.
+        ReadFilesItems rf = new ReadFilesItems(resultadosCSV);
+        List<Ronda> rondas = rd.getItems(rf.getFileItems());
+        rf.setRutaCSV(pronosticosCSV);
         List<Persona> personas = pr.getItems(rf.getFileItems());
+
+        //Obtenemos el puntaje de cada persona e imprimimos las personas junto a sus pronosticos, puntaje y sus aciertos.
         pr.obtenerPuntaje(personas, rondas);
         System.out.println(personas);
-
     }
 }

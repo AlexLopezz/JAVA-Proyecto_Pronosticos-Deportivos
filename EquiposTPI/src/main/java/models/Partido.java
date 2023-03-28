@@ -57,7 +57,7 @@ public class Partido {
         this.golesEquipo2 = golesEquipo2;
     }
     public ResultadoEnum resultado(Equipo equipo) {
-
+        //Retorna el resultado del equipo que se pasó como argumento solo sí el equipo pertenece al encuentro.
         if(this.equipo1.equals(equipo)){
             if(golesEquipo1 == golesEquipo2) {
                 return ResultadoEnum.Empate;
@@ -90,8 +90,5 @@ public class Partido {
     @Override
     public String toString() {
         return "["+this.equipo1+"("+this.golesEquipo1+") vs ("+this.golesEquipo2+")"+this.equipo2+"]";
-
-
-
     }
 }

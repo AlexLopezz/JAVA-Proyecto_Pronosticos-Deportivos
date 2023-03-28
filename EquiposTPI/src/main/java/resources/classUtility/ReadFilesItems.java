@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+//Clase creada para leer los archivos y limpiarlos.
 public class ReadFilesItems {
     private String rutaCSV;
 
@@ -21,6 +22,7 @@ public class ReadFilesItems {
         this.rutaCSV = rutaCSV;
     }
 
+    //Retorna el archivo leído dentro de un array de strings.
     public String[] getFileItems() throws IOException {
         if(rutaCSV != null){
             //Para que la ruta me lea correctamente en sistemas operativos linux, debemos formatear la ruta.

@@ -6,8 +6,8 @@ import java.util.List;
 public class Persona {
     private String nombre;
     private int puntaje;
-
     private List<Pronostico> pronosticos;
+    private List<Pronostico> pronosticosAcertados = new ArrayList<Pronostico>();
 
 
     public Persona(String nombre){
@@ -36,19 +36,11 @@ public class Persona {
     }
 
     public void setPuntaje(int puntaje) {
-        this.puntaje += puntaje;
+        this.puntaje = puntaje;
     }
 
     public void addPronostico (Pronostico pronostico){
         this.pronosticos.add(pronostico);
-    }
-
-    @Override
-    public String toString() {
-        return "Persona: "+this.nombre+
-                "\nPronosticos: "+ this.pronosticos+
-                "\nPuntaje total de aciertos: "+ this.puntaje+
-                "\n*********************";
     }
 
     public List<Pronostico> getPronostico() {
@@ -57,5 +49,23 @@ public class Persona {
 
     public void setPronostico(List<Pronostico> pronostico) {
         this.pronosticos = pronostico;
+    }
+
+    public List<Pronostico> getPronosticosAcertados() {
+        return pronosticosAcertados;
+    }
+
+    public void addPronosticosAcertados(Pronostico pronosticoAcertado) {
+        this.pronosticosAcertados.add(pronosticoAcertado);
+    }
+
+    @Override
+    public String toString() {
+        return "\n*********************" +
+                "\nPersona: "+this.nombre+
+                "\nPronosticos: "+ this.pronosticos+
+                "\nPuntaje total de aciertos: "+ this.puntaje+
+                "\nPronosticos acertados: "+ this.pronosticosAcertados +
+                "\n*********************";
     }
 }

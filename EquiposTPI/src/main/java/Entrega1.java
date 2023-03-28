@@ -28,17 +28,20 @@ public class Entrega1 {
         String rutaPronostico = System.getProperty("user.dir") + "\\EquiposTPI\\src\\main\\java\\resources\\files\\entrega1\\pronostico.csv";
         PronosticoRepositorio pronosticoRepo = new PronosticoRepositorio();
 
-        //Modificamos la rutaCSV para obtener los datos de otro archivo
+        //Modificamos la rutaCSV para obtener los datos de otro archivo.
         rf.setRutaCSV(rutaPronostico);
 
+        //Obtenemos los pronosticos del archivo csv.
         List<Pronostico> pronosticoFile = pronosticoRepo.getItems(rf.getFileItems());
 
+        //Imprimimos los pronosticos del archivo.
         System.out.println("\n*Pronosticos - Archivo .csv: ");
         pronosticoFile.forEach(System.out::println);
-        
+
+        //Calculamos los puntos totales obtenidos por los pronósticos.
         int puntosTotales = pronosticoRepo.puntajePronostico(pronosticoFile, partidosResultados);
 
+        //Visualizamos el total de puntajes obtenidos.
         System.out.println("> Puntos totales obtenidos por el acierto de los pronosticos: "+ puntosTotales);
-
     }
 }
