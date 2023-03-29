@@ -1,10 +1,10 @@
-import models.Persona;
-import models.Ronda;
+import models.*;
 import repositories.PersonaRepositorio;
 import repositories.RondaRepositorio;
 import resources.classUtility.ReadFilesItems;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Entrega2 {
@@ -26,5 +26,49 @@ public class Entrega2 {
         //Obtenemos el puntaje de cada persona e imprimimos las personas junto a sus pronosticos, puntaje y sus aciertos.
         pr.obtenerPuntaje(personas, rondas);
         System.out.println(personas);
+
+         Persona persona = new Persona("Alex");
+         List<Pronostico>pronosticoalex = new ArrayList<>();
+         Pronostico pronostico1 = new Pronostico(
+                 new Partido (
+                         new Equipo("Argentina"),
+                         new Equipo("Arabia Saudita")
+                 ),
+                 new Equipo ("Argentina"),
+                 ResultadoEnum.Ganador
+         );
+        Pronostico pronostico2 = new Pronostico(
+                new Partido (
+                        new Equipo("Polonia"),
+                        new Equipo("Mexico")
+                ),
+                new Equipo ("Mexico"),
+                ResultadoEnum.Empate
+        );
+        Pronostico pronostico3 = new Pronostico(
+                new Partido (
+                        new Equipo("Argentina"),
+                        new Equipo("Mexico")
+                ),
+                new Equipo ("Argentina"),
+                ResultadoEnum.Ganador
+        );
+        Pronostico pronostico4 = new Pronostico(
+                new Partido (
+                        new Equipo("Arabia Saudita"),
+                        new Equipo("Polonia")
+                ),
+                new Equipo ("Arabia Saudita"),
+                ResultadoEnum.Perdedor
+        );
+        pronosticoalex.add(pronostico1);
+        pronosticoalex.add(pronostico2);
+        pronosticoalex.add(pronostico3);
+        pronosticoalex.add(pronostico4);
+        persona.setPronostico(pronosticoalex);
+
+        pr.obtenerpuntaje(persona,rondas);
+        System.out.println(persona);
+
     }
 }

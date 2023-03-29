@@ -4,8 +4,11 @@ import interfaces.Convertible;
 import models.*;
 import resources.classUtility.Generate;
 
+import java.io.LineNumberInputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PersonaRepositorio implements Convertible<Persona> {
     @Override
@@ -50,17 +53,38 @@ public class PersonaRepositorio implements Convertible<Persona> {
     //Evalua los pronosticos de las personas con los partidos, setea el puntaje y guarda los pronosticos acertados.
     public void obtenerPuntaje(List<Persona> personas, List<Ronda> rondas){
         for(Persona persona : personas){
+            Map<Ronda, Integer>dict= new HashMap<>();
             int puntaje = 0;
             for(Ronda ronda : rondas){
+                int puntajeronda=0;
                 for(Pronostico personaPronostico : persona.getPronostico()){
                     if (personaPronostico.puntos(ronda.getPartidos()) == 1){
                         puntaje += 1;
+                        puntajeronda+= 1;
                         persona.addPronosticosAcertados(personaPronostico);
                     }
                 }
+                dict.put(ronda, puntajeronda);
             }
             persona.setPuntaje(puntaje);
+            persona.setPuntajePorRonda(dict);
         }
     }
-
+    public void obtenerpuntaje(Persona persona, List<Ronda> rondas){
+        int puntaje=0;
+        Map<Ronda,Integer> dict = new HashMap<>();
+        for (Ronda ronda: rondas){
+            int puntajeronda=0;
+            for(Pronostico partidopersona: persona.getPronostico()){
+                if(partidopersona.puntos(ronda.getPartidos())==1){
+                    puntaje=puntaje+1;
+                    puntajeronda+=1;
+                    persona.addPronosticosAcertados(partidopersona);
+                }
+            }
+            dict.put(ronda,puntajeronda);
+        }
+        persona.setPuntaje(puntaje);
+        persona.setPuntajePorRonda(dict);
+    }
 }

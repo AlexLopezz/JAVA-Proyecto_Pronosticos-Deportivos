@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="434e4fa7-1075-45c4-9141-4c884d060ec4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Pronostico.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Pronostico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/resources/files/entrega1/pronostico.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/resources/files/entrega1/pronostico.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/target/classes/models/Pronostico.class" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/target/classes/models/Pronostico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/target/classes/repositories/PartidoRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/target/classes/repositories/PartidoRepositorio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/target/classes/repositories/PersonaRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/target/classes/repositories/PersonaRepositorio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/target/classes/repositories/PronosticoRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/target/classes/repositories/PronosticoRepositorio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquiposTPI/target/classes/repositories/RondaRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/target/classes/repositories/RondaRepositorio.class" afterDir="false" />
-    </list>
+    <list default="true" id="434e4fa7-1075-45c4-9141-4c884d060ec4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

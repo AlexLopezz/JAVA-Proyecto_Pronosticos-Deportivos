@@ -1,14 +1,16 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Persona {
     private String nombre;
     private int puntaje;
     private List<Pronostico> pronosticos;
     private List<Pronostico> pronosticosAcertados = new ArrayList<Pronostico>();
-
+    private Map<Ronda,Integer> puntajePorRonda;
 
     public Persona(String nombre){
         this.nombre = nombre;
@@ -16,11 +18,13 @@ public class Persona {
     }
     public Persona(){
         this.pronosticos = new ArrayList<>();
+        this.puntajePorRonda = new HashMap<>();
     }
 
     public Persona(String nombre, List<Pronostico> pronostico) {
         this.nombre = nombre;
         this.pronosticos = pronostico;
+        this.puntajePorRonda = new HashMap<>();
     }
 
     public String getNombre() {
@@ -59,13 +63,27 @@ public class Persona {
         this.pronosticosAcertados.add(pronosticoAcertado);
     }
 
+    public Map<Ronda, Integer> getPuntajePorRonda() {
+        return puntajePorRonda;
+    }
+
+    public void setPuntajePorRonda(Map<Ronda, Integer> puntajePorRonda) {
+        this.puntajePorRonda = puntajePorRonda;
+    }
+
     @Override
     public String toString() {
+        String rondaPuntaje ="";
+        for(Map.Entry<Ronda,Integer>entry: this.getPuntajePorRonda().entrySet()){
+            rondaPuntaje+= "Ronda " + entry.getKey().getNro() +
+                    ": " + entry.getValue().toString() + "\n";
+        }
         return "\n*********************" +
                 "\nPersona: "+this.nombre+
                 "\nPronosticos: "+ this.pronosticos+
                 "\nPuntaje total de aciertos: "+ this.puntaje+
                 "\nPronosticos acertados: "+ this.pronosticosAcertados +
+                "\n" + rondaPuntaje +
                 "\n*********************";
     }
 }
