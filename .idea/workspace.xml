@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="434e4fa7-1075-45c4-9141-4c884d060ec4" name="Changes" comment="" />
+    <list default="true" id="434e4fa7-1075-45c4-9141-4c884d060ec4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Pronostico.java" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/models/Pronostico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/src/main/java/resources/files/entrega1/pronostico.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/src/main/java/resources/files/entrega1/pronostico.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/target/classes/models/Pronostico.class" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/target/classes/models/Pronostico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/target/classes/repositories/PartidoRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/target/classes/repositories/PartidoRepositorio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/target/classes/repositories/PersonaRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/target/classes/repositories/PersonaRepositorio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/target/classes/repositories/PronosticoRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/target/classes/repositories/PronosticoRepositorio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquiposTPI/target/classes/repositories/RondaRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/EquiposTPI/target/classes/repositories/RondaRepositorio.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,6 +72,22 @@
       <recent name="D:\JAVA-Proyecto_Pronosticos-Deportivos\EquiposTPI\src\main\java\resources\files\entrega1" />
       <recent name="D:\JAVA-Proyecto_Pronosticos-Deportivos\EquiposTPI\src\main\java\resources\files" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="RondaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EquiposTPI" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RondaTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.RondaTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

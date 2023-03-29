@@ -1,7 +1,9 @@
 package models;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class Pronostico {
     private Partido partido;
@@ -64,19 +66,19 @@ public class Pronostico {
     public int puntos(List<Partido> partidos){
         //Evalua los partidos junto a sus pronosticos y devuelve el puntaje obtenido.
         int puntos = 0;
-        for(Partido partido : partidos){
-            if(this.partido.equals(partido)) {
-                if(this.equipo.equals(partido.getEquipo1())){
-                    if(this.resultado.equals(partido.resultado(partido.getEquipo1()))){
-                        puntos++;
-                    }
-                }else if(this.equipo.equals(partido.getEquipo2())){
-                    if(this.resultado.equals(partido.resultado(partido.getEquipo2()))){
-                        puntos++;
-                    }
-                }
+        Optional<Partido> partidoEncontrado  =  partidos.stream().filter(
+                                                                    p -> p.equals(this.partido))
+                                                                    .findAny();
+        if(partidoEncontrado.isPresent()){
+            ResultadoEnum resultadoPartido = partidoEncontrado.map(
+                    p -> p.resultado(p.getEquipo1())
+            ).orElse(null);
+
+            if(this.resultado.equals(resultadoPartido)){
+                puntos++;
             }
         }
+
         return puntos;
     }
 
