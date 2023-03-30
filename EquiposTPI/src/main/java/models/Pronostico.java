@@ -66,20 +66,34 @@ public class Pronostico {
     public int puntos(List<Partido> partidos){
         //Evalua los partidos junto a sus pronosticos y devuelve el puntaje obtenido.
         int puntos = 0;
-        Optional<Partido> partidoEncontrado  =  partidos.stream().filter(
-                                                                    p -> p.equals(this.partido))
-                                                                    .findAny();
-        if(partidoEncontrado.isPresent()){
-            ResultadoEnum resultadoPartido = partidoEncontrado.map(
-                    p -> p.resultado(p.getEquipo1())
-            ).orElse(null);
+        Partido partidoEncontrado = this.obtenerPartidoPronostico(partidos);
 
-            if(this.resultado.equals(resultadoPartido)){
+        if (partidoEncontrado != null){
+            if(this.pronosticoAcertado(partidoEncontrado)){
                 puntos++;
             }
         }
 
         return puntos;
+    }
+
+    public int puntosPartido(Partido partido){
+        if(this.pronosticoAcertado(partido)){
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+
+    public Partido obtenerPartidoPronostico (List <Partido> partidos){
+
+        return partidos.stream().filter(
+                        p -> p.equals(this.partido))
+                .findAny().orElse(null);
+    }
+
+    public boolean pronosticoAcertado (Partido partido){
+        return this.resultado.equals(partido.resultado(partido.getEquipo1()));
     }
 
     @Override

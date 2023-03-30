@@ -28,7 +28,7 @@ public class Entrega2 {
         System.out.println(personas);
 
          Persona persona = new Persona("Alex");
-         List<Pronostico>pronosticoalex = new ArrayList<>();
+         List<Pronostico> pronosticoAlex = new ArrayList<>();
          Pronostico pronostico1 = new Pronostico(
                  new Partido (
                          new Equipo("Argentina"),
@@ -61,14 +61,13 @@ public class Entrega2 {
                 new Equipo ("Arabia Saudita"),
                 ResultadoEnum.Perdedor
         );
-        pronosticoalex.add(pronostico1);
-        pronosticoalex.add(pronostico2);
-        pronosticoalex.add(pronostico3);
-        pronosticoalex.add(pronostico4);
-        persona.setPronostico(pronosticoalex);
+        pronosticoAlex.add(pronostico1);
+        pronosticoAlex.add(pronostico2);
+        pronosticoAlex.add(pronostico3);
+        pronosticoAlex.add(pronostico4);
+        persona.setPronostico(pronosticoAlex);
 
-        pr.obtenerpuntaje(persona,rondas);
+        pr.obtenerPuntaje(persona, rondas);
         System.out.println(persona);
-
     }
 }

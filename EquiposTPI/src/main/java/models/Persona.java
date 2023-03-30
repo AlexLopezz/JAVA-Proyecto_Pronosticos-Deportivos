@@ -10,7 +10,7 @@ public class Persona {
     private int puntaje;
     private List<Pronostico> pronosticos;
     private List<Pronostico> pronosticosAcertados = new ArrayList<Pronostico>();
-    private Map<Ronda,Integer> puntajePorRonda;
+    private Map<Ronda, Integer> puntajePorRonda;
 
     public Persona(String nombre){
         this.nombre = nombre;
@@ -74,7 +74,7 @@ public class Persona {
     @Override
     public String toString() {
         String rondaPuntaje ="";
-        for(Map.Entry<Ronda,Integer>entry: this.getPuntajePorRonda().entrySet()){
+        for(Map.Entry<Ronda, Integer> entry: this.getPuntajePorRonda().entrySet()){
             rondaPuntaje+= "Ronda " + entry.getKey().getNro() +
                     ": " + entry.getValue().toString() + "\n";
         }

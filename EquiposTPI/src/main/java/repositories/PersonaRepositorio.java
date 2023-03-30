@@ -3,8 +3,6 @@ package repositories;
 import interfaces.Convertible;
 import models.*;
 import resources.classUtility.Generate;
-
-import java.io.LineNumberInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +14,7 @@ public class PersonaRepositorio implements Convertible<Persona> {
     public List<Persona> getItems(String[] itemsFile) {
         //Inicializamos variables de entradas.
         String nombrePersona = "";
-        Pronostico auxPronostico = new Pronostico();
+        Pronostico auxPronostico;
         Persona auxPersona = new Persona();
         List<Persona> auxPersonas = new ArrayList<>();
         int aux = 0;
@@ -32,14 +30,13 @@ public class PersonaRepositorio implements Convertible<Persona> {
             };
 
             //Evalúa si la iteración se trata de la misma persona.
-            if(nombrePersona.equals(itemsFile[aux])){
-                auxPronostico = Generate.generatePronostico(data);
-            }else{
-                nombrePersona= itemsFile[aux];
+            if (!nombrePersona.equals(itemsFile[aux])) {
+                nombrePersona = itemsFile[aux];
                 auxPersona = new Persona(nombrePersona);
                 auxPersonas.add(auxPersona);
-                auxPronostico = Generate.generatePronostico(data);
             }
+
+            auxPronostico = Generate.generatePronostico(data);
 
             //Añade el pronostico a la lista de pronosticos de la persona.
             auxPersona.addPronostico(auxPronostico);
@@ -52,37 +49,34 @@ public class PersonaRepositorio implements Convertible<Persona> {
 
     //Evalua los pronosticos de las personas con los partidos, setea el puntaje y guarda los pronosticos acertados.
     public void obtenerPuntaje(List<Persona> personas, List<Ronda> rondas){
-        for(Persona persona : personas){
-            Map<Ronda, Integer>dict= new HashMap<>();
-            int puntaje = 0;
-            for(Ronda ronda : rondas){
-                int puntajeronda=0;
-                for(Pronostico personaPronostico : persona.getPronostico()){
-                    if (personaPronostico.puntos(ronda.getPartidos()) == 1){
-                        puntaje += 1;
-                        puntajeronda+= 1;
-                        persona.addPronosticosAcertados(personaPronostico);
-                    }
-                }
-                dict.put(ronda, puntajeronda);
-            }
-            persona.setPuntaje(puntaje);
-            persona.setPuntajePorRonda(dict);
+        for (Persona persona : personas){
+            this.obtenerPuntaje(persona, rondas);
         }
     }
-    public void obtenerpuntaje(Persona persona, List<Ronda> rondas){
+    public void obtenerPuntaje(Persona persona, List<Ronda> rondas){
         int puntaje=0;
-        Map<Ronda,Integer> dict = new HashMap<>();
+        Map<Ronda, Integer> dict = new HashMap<>();
         for (Ronda ronda: rondas){
-            int puntajeronda=0;
-            for(Pronostico partidopersona: persona.getPronostico()){
-                if(partidopersona.puntos(ronda.getPartidos())==1){
-                    puntaje=puntaje+1;
-                    puntajeronda+=1;
-                    persona.addPronosticosAcertados(partidopersona);
+            boolean rondaAcertada = true;
+            int puntajeRonda=0;
+            for(Pronostico pronosticoPersona: persona.getPronostico()){
+                Partido partidoPronostico = pronosticoPersona.obtenerPartidoPronostico(ronda.getPartidos());
+                if (partidoPronostico == null){ continue;}
+                switch (pronosticoPersona.puntosPartido(partidoPronostico)){
+                    case 1:
+                        puntajeRonda+=1;
+                        persona.addPronosticosAcertados(pronosticoPersona);
+                        break;
+                    case -1:
+                        rondaAcertada = false;
+                        break;
                 }
             }
-            dict.put(ronda,puntajeronda);
+            if (rondaAcertada) {
+                puntajeRonda += 2;
+            }
+            puntaje += puntajeRonda;
+            dict.put(ronda, puntajeRonda);
         }
         persona.setPuntaje(puntaje);
         persona.setPuntajePorRonda(dict);
