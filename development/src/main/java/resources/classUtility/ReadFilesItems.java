@@ -14,6 +14,9 @@ public class ReadFilesItems {
         this.rutaCSV = rutaCSV;
     }
 
+    public ReadFilesItems() {
+    }
+
     public String getRutaCSV() {
         return rutaCSV;
     }

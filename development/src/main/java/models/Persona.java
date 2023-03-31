@@ -75,14 +75,14 @@ public class Persona {
     public String toString() {
         String rondaPuntaje ="";
         for(Map.Entry<Ronda, Integer> entry: this.getPuntajePorRonda().entrySet()){
-            rondaPuntaje+= "Ronda " + entry.getKey().getNro() +
-                    ": " + entry.getValue().toString() + "\n";
+            rondaPuntaje+= "Ronda N°" + entry.getKey().getNro() +
+                    " - Puntaje: " + entry.getValue().toString() + "\n";
         }
         return "\n*********************" +
-                "\nPersona: "+this.nombre+
-                "\nPronosticos: "+ this.pronosticos+
-                "\nPuntaje total de aciertos: "+ this.puntaje+
-                "\nPronosticos acertados: "+ this.pronosticosAcertados +
+                "\n-> Persona: "+this.nombre+
+                "\n-> Pronosticos: "+ this.pronosticos+
+                "\n-> Puntaje total de aciertos: "+ this.puntaje+
+                "\n-> Pronosticos acertados: "+ this.pronosticosAcertados +
                 "\n" + rondaPuntaje +
                 "\n*********************";
     }

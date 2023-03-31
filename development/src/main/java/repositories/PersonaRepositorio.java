@@ -1,5 +1,6 @@
 package repositories;
 
+import exceptions.RondaException;
 import interfaces.Convertible;
 import models.*;
 import resources.classUtility.Generate;
@@ -80,5 +81,31 @@ public class PersonaRepositorio implements Convertible<Persona> {
         }
         persona.setPuntaje(puntaje);
         persona.setPuntajePorRonda(dict);
+    }
+
+    public int obtenerPuntaje(Persona persona, List<Ronda> rondas, int cantRondas) throws RondaException {
+        //Verificamos si la cantidad de rondas no es negativa.
+        if(cantRondas > 0) {
+            //Obtenemos el puntaje total de las personas. Esto servira para que tambien obtengamos todos los puntajes por rondas.
+            this.obtenerPuntaje(persona, rondas);
+            int puntajeRonda = 0;
+
+            //La cant de rondas es menor o igual que las rondas totales, entonces iteraremos...
+            if( cantRondas <= persona.getPuntajePorRonda().size() ) {
+                for (Map.Entry<Ronda, Integer> map : persona.getPuntajePorRonda().entrySet()) {
+                    //Aca verificamos que se itere hasta la cantidad de rondas especificadas...
+                    if (Integer.parseInt(map.getKey().getNro()) <= cantRondas) {
+                        puntajeRonda += map.getValue(); //Rellenamos los puntos por ronda hasta la ronda especificada.
+                    } else {
+                        break;
+                    }
+                }
+            }else{
+                throw new RondaException("La cantidad de rondas especificada sobrepasa las rondas actuales.");
+            }
+            return puntajeRonda; //Si salio como se esperaba devolveremos, los puntos totales hasta la ronda especificada.
+        }else {
+            throw new RondaException("Debe indicar almenos una(1) ronda.");
+        }
     }
 }
