@@ -1,3 +1,5 @@
+use railway;
+
 CREATE TABLE Persona(
 idPersona int AUTO_INCREMENT primary key,
 nombre varchar(20) not null,
@@ -45,7 +47,10 @@ FOREIGN KEY (persona_FK) references Persona(idPersona)
 );
 
 CREATE TABLE PuntajeRonda(
-idRonda int primary key,
-idPersona int primary key,
-puntaje int default 0
+idRonda int not null,
+idPersona int not null,
+puntaje int default 0,
+primary key(idRonda, idPersona),
+FOREIGN KEY (idRonda) references Ronda(idRonda),
+FOREIGN KEY (idPersona) references Persona(idPersona)
 );
