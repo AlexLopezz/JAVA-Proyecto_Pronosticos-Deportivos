@@ -1,17 +1,23 @@
+import DAOS.PartidoDAO;
+import models.Partido;
 import resources.classUtility.ConexionDB;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
+import java.util.Optional;
 
 public class Entrega3 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
+
         /* Es importante automatizar las conexiones para que luego de ocuparlas, se cierren automaticamente. Esto se logra
         con el try-catch. Podemos optar por tratar cada clase (Connection, Statement y ResultSet) o lo que es lo mismo, tratarlas
-        a todas estas en una misma clase, por lo que optamos por tratar a todas dentro de un mismo try. Esto debido a evitar tener
+        a todas estas en un mismo try, por lo que optamos por tratar a todas dentro de un mismo try. Esto debido a evitar tener
         muchos try-catch y que el codigo se vea muy engorroso.
          */
+        /*
         try (Connection connection = ConexionDB.getInstance(); //Obtenemos la conexion a la BD.
              Statement stmt = connection.createStatement(); //Se utiliza para ejecutar sentencias SQL sin parametros.
              ResultSet resultado = stmt.executeQuery("SELECT * FROM Partido;")) { //Con ResultSet almacenaremos lo que se ejecutara en el query.
@@ -30,6 +36,19 @@ public class Entrega3 {
             }
         } catch (SQLException s) {
             throw new RuntimeException("Ocurrio el siguiente error: " + s.getMessage());
+        }
+         */
+
+        PartidoDAO partidoDAO = new PartidoDAO();
+        try(Connection connection = ConexionDB.getInstance()){
+            //Obtenemos en una lista todos los partidos:
+            List<Partido> partidosDB = partidoDAO.list();
+            //Verificamos si hay partidos en la lista
+            partidosDB.forEach(System.out::println);
+
+            //Verificamos si existe un partido con ese ID:
+            Optional<Partido> partido = partidoDAO.search(2);
+            System.out.println("\n\n"+partido.get());
         }
     }
 
