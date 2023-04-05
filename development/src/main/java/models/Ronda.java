@@ -52,9 +52,6 @@ public class Ronda {
     public void addPartido(Partido partido){
         this.partidos.add(partido);
     }
-    public int puntos() {
-        return 0;
-    }
 
     @Override
     public String toString() {

@@ -86,17 +86,7 @@ public class PartidoDAO implements Crudable<Partido> {
             throw new RuntimeException("Ocurrio el siguiente error: "+s.getMessage());
         }
 
-        return partidoAux;
-    }
-
-    @Override
-    public boolean delete(Partido obj) {
-        return false;
-    }
-
-    @Override
-    public boolean update(Partido obj) {
-        return false;
+        return partidoAux; //Retornara el partido buscddo(si lo encuentra). Es necesario validar si el obj partido esta presente.
     }
 
 }
