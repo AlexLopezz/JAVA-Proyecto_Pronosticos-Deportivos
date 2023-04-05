@@ -6,25 +6,27 @@ import java.util.List;
 import java.util.Map;
 
 public class Persona {
+    private int id;
     private String nombre;
     private int puntaje;
-    private List<Pronostico> pronosticos;
-    private List<Pronostico> pronosticosAcertados = new ArrayList<Pronostico>();
-    private Map<Ronda, Integer> puntajePorRonda;
+    private List<Pronostico> pronosticos = new ArrayList<>();
+    private List<Pronostico> pronosticosAcertados = new ArrayList<>();
+    private Map<Ronda, Integer> puntajePorRonda = new HashMap<>();
 
     public Persona(String nombre){
         this.nombre = nombre;
-        this.pronosticos = new ArrayList<>();
     }
     public Persona(){
-        this.pronosticos = new ArrayList<>();
-        this.puntajePorRonda = new HashMap<>();
     }
 
     public Persona(String nombre, List<Pronostico> pronostico) {
         this.nombre = nombre;
         this.pronosticos = pronostico;
-        this.puntajePorRonda = new HashMap<>();
+    }
+
+    public Persona(int id, String nombre) {
+        this.id = id;
+        this.nombre = nombre;
     }
 
     public String getNombre() {
@@ -75,7 +77,7 @@ public class Persona {
     public String toString() {
         String rondaPuntaje ="";
         for(Map.Entry<Ronda, Integer> entry: this.getPuntajePorRonda().entrySet()){
-            rondaPuntaje+= "Ronda N°" + entry.getKey().getNro() +
+            rondaPuntaje+= "Ronda N°" + entry.getKey().getId() +
                     " - Puntaje: " + entry.getValue().toString() + "\n";
         }
         return "\n*********************" +

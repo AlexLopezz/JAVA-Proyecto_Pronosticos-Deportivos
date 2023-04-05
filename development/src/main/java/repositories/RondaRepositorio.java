@@ -14,10 +14,10 @@ public class RondaRepositorio implements Convertible<Ronda> {
     //Retorna las rondas jugadas a partir de los datos obtenidos.
     public List<Ronda> getItems(String[] itemsFile) {
         //Inicializamos variables de entrada.
-        String nroRonda = "-1";
+        int nroRonda = -1;
         List<Ronda> auxRonda = new ArrayList<>();
         Partido partidoActual;
-        Ronda rondaActual = new Ronda("-1");
+        Ronda rondaActual = new Ronda(-1);
         int aux = 0;
 
         //Iteramos los datos del archivo.
@@ -34,7 +34,7 @@ public class RondaRepositorio implements Convertible<Ronda> {
             if (itemsFile[aux].equals(nroRonda)) {
                 partidoActual = Generate.generatePartido(data);
             } else {
-                nroRonda = itemsFile[aux];
+                nroRonda = Integer.parseInt(itemsFile[aux]);
                 rondaActual = new Ronda((nroRonda));
                 auxRonda.add(rondaActual);
                 partidoActual = Generate.generatePartido(data);

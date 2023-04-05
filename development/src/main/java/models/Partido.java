@@ -3,7 +3,7 @@ package models;
 import java.util.Objects;
 
 public class Partido {
-    private Long id;
+    private int id;
 
     private Equipo equipo1;
 
@@ -26,6 +26,12 @@ public class Partido {
         this.equipo2 = equipo2;
     }
 
+    public Partido(int id, Equipo equipo1, Equipo equipo2) {
+        this.id = id;
+        this.equipo1 = equipo1;
+        this.equipo2 = equipo2;
+    }
+
     public Partido(Equipo equipo1, Equipo equipo2, int golesEquipo1, int golesEquipo2, Ronda ronda) {
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
@@ -34,7 +40,7 @@ public class Partido {
         this.ronda = ronda;
     }
 
-    public Partido(Long id, Equipo equipo1, Equipo equipo2, int golesEquipo1, int golesEquipo2, Ronda ronda) {
+    public Partido(int id, Equipo equipo1, Equipo equipo2, int golesEquipo1, int golesEquipo2, Ronda ronda) {
         this.id = id;
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
@@ -44,11 +50,11 @@ public class Partido {
         this.ronda = ronda;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

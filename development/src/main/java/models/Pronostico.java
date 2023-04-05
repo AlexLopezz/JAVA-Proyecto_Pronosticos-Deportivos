@@ -6,9 +6,11 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class Pronostico {
+    private int id;
     private Partido partido;
     private Equipo equipo;
     private ResultadoEnum resultado;
+
 
     public Pronostico(Partido partido, Equipo equipo) {
         this.partido = partido;
@@ -22,6 +24,13 @@ public class Pronostico {
     }
 
     public Pronostico(Equipo equipo, ResultadoEnum resultado) {
+        this.equipo = equipo;
+        this.resultado = resultado;
+    }
+
+    public Pronostico(int id, Partido partido, Equipo equipo, ResultadoEnum resultado) {
+        this.id = id;
+        this.partido = partido;
         this.equipo = equipo;
         this.resultado = resultado;
     }

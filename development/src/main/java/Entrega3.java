@@ -1,5 +1,9 @@
 import DAOS.PartidoDAO;
+import DAOS.PersonaDAO;
+import DAOS.PronosticoDAO;
 import models.Partido;
+import models.Persona;
+import models.Pronostico;
 import resources.classUtility.ConexionDB;
 
 import java.sql.Connection;
@@ -39,8 +43,11 @@ public class Entrega3 {
         }
          */
 
+        PersonaDAO personaDAO = new PersonaDAO();
         PartidoDAO partidoDAO = new PartidoDAO();
+        PronosticoDAO pronosticoDAO = new PronosticoDAO();
         try(Connection connection = ConexionDB.getInstance()){
+
             //Obtenemos en una lista todos los partidos:
             List<Partido> partidosDB = partidoDAO.list();
             //Verificamos si hay partidos en la lista
@@ -49,6 +56,13 @@ public class Entrega3 {
             //Verificamos si existe un partido con ese ID:
             Optional<Partido> partido = partidoDAO.search(2);
             System.out.println("\n\n"+partido.get());
+
+            //Obtenemos en una lista todos los pronosticos:
+            List<Pronostico> pronosticosDB = pronosticoDAO.list();
+            //Verificamos si hay pronosticos en la lista
+            pronosticosDB.forEach(System.out::println);
+
+            personaDAO.list().forEach(System.out::println);
         }
     }
 

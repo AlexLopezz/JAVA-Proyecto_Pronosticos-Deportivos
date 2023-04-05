@@ -1,44 +1,43 @@
 package models;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Ronda {
-    private String nro;
+    private int id;
     private String descripcion;
     private List<Partido> partidos;
     private Fase fase;
 
-    public Ronda(String nro) {
-        this.nro = nro;
+    public Ronda(int id) {
+        this.id = id;
         this.partidos = new ArrayList<>();
     }
 
-    public Ronda(String nro, String descripcion) {
-        this.nro = nro;
+    public Ronda(int id, String descripcion) {
+        this.id = id;
         this.descripcion = descripcion;
         this.partidos = new ArrayList<>();
     }
 
-    public Ronda(String nro, String descripcion, List<Partido> partidos, Fase fase) {
-        this.nro = nro;
+    public Ronda(int id, String descripcion, List<Partido> partidos, Fase fase) {
+        this.id = id;
         this.descripcion = descripcion;
         this.partidos = partidos;
         this.fase = fase;
     }
 
-    public Ronda(String nro, List<Partido> partidos) {
-        this.nro = nro;
+    public Ronda(int id, List<Partido> partidos) {
+        this.id = id;
         this.partidos = partidos;
     }
 
-    public String getNro() {
-        return nro;
+    public int getId() {
+        return id;
     }
 
-    public void setNro(String nro) {
-        this.nro = nro;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public List<Partido> getPartidos() {
@@ -65,7 +64,7 @@ public class Ronda {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("Partidos: ").append("Ronda N° ").append(this.nro).append("\n");
+        sb.append("Partidos: ").append("Ronda N° ").append(this.id).append("\n");
 
         for(Partido p : this.partidos){
             sb.append(p)

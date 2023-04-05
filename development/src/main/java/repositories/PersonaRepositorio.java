@@ -94,7 +94,7 @@ public class PersonaRepositorio implements Convertible<Persona> {
             if( cantRondas <= persona.getPuntajePorRonda().size() ) {
                 for (Map.Entry<Ronda, Integer> map : persona.getPuntajePorRonda().entrySet()) {
                     //Aca verificamos que se itere hasta la cantidad de rondas especificadas...
-                    if (Integer.parseInt(map.getKey().getNro()) <= cantRondas) {
+                    if (map.getKey().getId() <= cantRondas) {
                         puntajeRonda += map.getValue(); //Rellenamos los puntos por ronda hasta la ronda especificada.
                     } else {
                         break;

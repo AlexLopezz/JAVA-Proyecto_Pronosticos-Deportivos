@@ -1,6 +1,5 @@
 package DAOS;
 
-import interfaces.Crudable;
 import models.Equipo;
 import models.Fase;
 import models.Partido;
@@ -25,11 +24,10 @@ public class PartidoDAO {
         try(Statement stmt = getConnection().createStatement(); //Creamos el statement para ejecutar una query.
             //Ejecutamos el siguiente query para listar todos los partidos que hay en BD:
             ResultSet rs = stmt.executeQuery(""" 
-                    SELECT idPartido, P.equipo1_FK, P.equipo2_FK, P.golesEquipo1, P.golesEquipo2,
-                    F.idFase, F.descripcion as descripcionFase, R.idRonda, R.descripcion as descripcionRonda from Partido as P
-                    INNER JOIN Fase as F\s
-                    INNER JOIN Ronda as R\s
-                    WHERE P.fase_FK = F.idFase AND P.ronda_FK = R.idRonda;""")){
+                    SELECT idPartido, P.equipo1_FK, P.equipo2_FK, P.golesEquipo1, P.golesEquipo2, R.fase_fk, 
+                    R.idRonda, R.descripcion as descripcionRonda from Partido as P
+                    INNER JOIN Ronda as R 
+                    ON P.ronda_FK = R.idRonda;""")){
 
             //Vamos a iterar todas las filas de la query:
             while (rs.next()){
@@ -40,8 +38,7 @@ public class PartidoDAO {
                                 new Equipo(rs.getString("equipo2_FK")),
                                 rs.getInt("golesEquipo1"),
                                 rs.getInt("golesEquipo2"),
-                                new Fase(rs.getInt("idFase"), rs.getString("descripcionFase")),
-                                new Ronda(rs.getString("idRonda"), rs.getString("descripcionRonda"))
+                                new Ronda(rs.getInt("idRonda"), rs.getString("descripcionRonda"))
                         )
                 );
             }
@@ -54,16 +51,15 @@ public class PartidoDAO {
 
 
     public Optional<Partido> search(int id) {
-        Optional<Partido> partidoAux;
+        Optional<Partido> partidoAux = Optional.empty();
         try(PreparedStatement stmt = getConnection()
                 .prepareStatement("""
                         SELECT idPartido, P.equipo1_FK, P.equipo2_FK, P.golesEquipo1, P.golesEquipo2,
-                        F.idFase, F.descripcion as descripcionFase, R.idRonda, R.descripcion as descripcionRonda from Partido as P
-                        INNER JOIN Fase as F
+                        R.fase_fk, R.idRonda, R.descripcion as descripcionRonda from Partido as P
                         INNER JOIN Ronda as R
-                        WHERE P.fase_FK = F.idFase AND P.ronda_FK = R.idRonda AND idPartido = ?;
+                        ON P.ronda_FK = R.idRonda where idPartido = ?;
                         """)){
-            stmt.setLong(1, id);
+            stmt.setInt(1, id);
 
             try (ResultSet rs = stmt.executeQuery()){
                 if(rs.next()) {
@@ -73,8 +69,7 @@ public class PartidoDAO {
                             new Equipo(rs.getString("equipo2_FK")),
                             rs.getInt("golesEquipo1"),
                             rs.getInt("golesEquipo2"),
-                            new Fase(rs.getInt("idFase"), rs.getString("descripcionFase")),
-                            new Ronda(rs.getString("idRonda"), rs.getString("descripcionRonda")))
+                            new Ronda(rs.getInt("idRonda"), rs.getString("descripcionRonda")))
                     );
 
                 }
