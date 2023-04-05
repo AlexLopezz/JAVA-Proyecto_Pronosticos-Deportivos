@@ -12,7 +12,6 @@ public class Partido {
     private int golesEquipo1;
 
     private int golesEquipo2;
-    private Fase fase;
     private Ronda ronda;
 
     public Partido(Equipo equipo1, Equipo equipo2, int golesEquipo1, int golesEquipo2) {
@@ -27,22 +26,21 @@ public class Partido {
         this.equipo2 = equipo2;
     }
 
-    public Partido(Equipo equipo1, Equipo equipo2, int golesEquipo1, int golesEquipo2, Fase fase, Ronda ronda) {
+    public Partido(Equipo equipo1, Equipo equipo2, int golesEquipo1, int golesEquipo2, Ronda ronda) {
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
         this.golesEquipo1 = golesEquipo1;
         this.golesEquipo2 = golesEquipo2;
-        this.fase = fase;
         this.ronda = ronda;
     }
 
-    public Partido(Long id, Equipo equipo1, Equipo equipo2, int golesEquipo1, int golesEquipo2, Fase fase, Ronda ronda) {
+    public Partido(Long id, Equipo equipo1, Equipo equipo2, int golesEquipo1, int golesEquipo2, Ronda ronda) {
         this.id = id;
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
         this.golesEquipo1 = golesEquipo1;
         this.golesEquipo2 = golesEquipo2;
-        this.fase = fase;
+
         this.ronda = ronda;
     }
 
@@ -106,15 +104,6 @@ public class Partido {
         }
         return null;
     }
-
-    public Fase getFase() {
-        return fase;
-    }
-
-    public void setFase(Fase fase) {
-        this.fase = fase;
-    }
-
     public Ronda getRonda() {
         return ronda;
     }

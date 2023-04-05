@@ -8,6 +8,7 @@ public class Ronda {
     private String nro;
     private String descripcion;
     private List<Partido> partidos;
+    private Fase fase;
 
     public Ronda(String nro) {
         this.nro = nro;
@@ -18,6 +19,13 @@ public class Ronda {
         this.nro = nro;
         this.descripcion = descripcion;
         this.partidos = new ArrayList<>();
+    }
+
+    public Ronda(String nro, String descripcion, List<Partido> partidos, Fase fase) {
+        this.nro = nro;
+        this.descripcion = descripcion;
+        this.partidos = partidos;
+        this.fase = fase;
     }
 
     public Ronda(String nro, List<Partido> partidos) {

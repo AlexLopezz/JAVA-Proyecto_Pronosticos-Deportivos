@@ -12,14 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class PartidoDAO implements Crudable<Partido> {
-    Optional<Partido> partidoAux;
+public class PartidoDAO {
     private Connection getConnection() throws SQLException {
         return ConexionDB.getInstance();
     }
 
 
-    @Override
+
     public List<Partido> list() {
         List<Partido> partidosDB = new ArrayList<>(); //Preparamos la lista que vamos a retornar.
 
@@ -53,8 +52,9 @@ public class PartidoDAO implements Crudable<Partido> {
         return partidosDB;
     }
 
-    @Override
+
     public Optional<Partido> search(int id) {
+        Optional<Partido> partidoAux;
         try(PreparedStatement stmt = getConnection()
                 .prepareStatement("""
                         SELECT idPartido, P.equipo1_FK, P.equipo2_FK, P.golesEquipo1, P.golesEquipo2,
