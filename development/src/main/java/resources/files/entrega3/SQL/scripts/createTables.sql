@@ -13,7 +13,9 @@ descripcion varchar(30)
 
 CREATE TABLE Ronda(
 idRonda int AUTO_INCREMENT primary key,
-descripcion varchar(30)
+fase_fk int not null,
+descripcion varchar(30),
+FOREIGN KEY (fase_fk) references Fase(idFase)
 );
 
 CREATE TABLE Equipo(
@@ -27,11 +29,9 @@ equipo1_FK varchar(30) not null,
 equipo2_FK varchar(30) not null,
 golesEquipo1 int default 0,
 golesEquipo2 int default 0,
-fase_FK int not null,
 ronda_FK int not null,
 FOREIGN KEY (equipo1_FK) references Equipo(Nombre),
 FOREIGN KEY (equipo2_FK) references Equipo(Nombre),
-FOREIGN KEY (fase_FK) references Fase(idFase),
 FOREIGN KEY (ronda_FK) references Ronda(idRonda)
 );
 

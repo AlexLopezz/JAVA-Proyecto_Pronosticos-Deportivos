@@ -26,32 +26,32 @@ values
 ('Fase de grupos'),
 ('Fase eliminatoria');
 
-insert into Ronda (descripcion)
+insert into Ronda (fase_fk, descripcion)
 values 
-('Primera fecha'),
-('Segundo fecha'),
-('Tercer fecha'),
-('Octavos de final'),
-('Cuartos de final'),
-('Semifinal'),
-('Final y Tercer puesto');
+(1, 'Primera fecha'),
+(1, 'Segundo fecha'),
+(1, 'Tercer fecha'),
+(2, 'Octavos de final'),
+(2, 'Cuartos de final'),
+(2, 'Semifinal'),
+(2, 'Final y Tercer puesto');
 
-insert into Partido(equipo1_FK, equipo2_FK, golesEquipo1, golesEquipo2, fase_FK, ronda_FK)
+insert into Partido(equipo1_FK, equipo2_FK, golesEquipo1, golesEquipo2, ronda_FK)
 values
-('Argentina', 'Arabia Saudita', 1, 2, 1, 1),
-('Mexico', 'Polonia', 0, 0, 1, 1),
-('Polonia', 'Arabia Saudita', 2, 0, 1, 2),
-('Argentina', 'Mexico', 2, 0, 1, 2),
-('Polonia', 'Argentina', 0, 2, 1, 3),
-('Arabia Saudita', 'Mexico', 1, 2, 1, 3),
-('Paises Bajos', 'Estados Unidos', 3, 1, 2, 4),
-('Argentina', 'Australia', 2, 1, 2, 4),
-('Paises Bajos', 'Argentina', 3, 4, 2, 5),
-('Croacia', 'Brasil', 4, 2, 2, 5),
-('Argentina', 'Croacia', 3, 0, 2, 6),
-('Francia', 'Marruecos', 2, 0, 2, 6),
-('Argentina', 'Francia', 4, 2, 2, 7),
-('Croacia', 'Marruecos', 2, 1, 2, 7);
+('Argentina', 'Arabia Saudita', 1, 2, 1),
+('Mexico', 'Polonia', 0, 0, 1),
+('Polonia', 'Arabia Saudita', 2, 0, 2),
+('Argentina', 'Mexico', 2, 0, 2),
+('Polonia', 'Argentina', 0, 2, 3),
+('Arabia Saudita', 'Mexico', 1, 2, 3),
+('Paises Bajos', 'Estados Unidos', 3, 1, 4),
+('Argentina', 'Australia', 2, 1, 4),
+('Paises Bajos', 'Argentina', 3, 4, 5),
+('Croacia', 'Brasil', 4, 2, 5),
+('Argentina', 'Croacia', 3, 0, 6),
+('Francia', 'Marruecos', 2, 0, 6),
+('Argentina', 'Francia', 4, 2, 7),
+('Croacia', 'Marruecos', 2, 1, 7);
 
 insert into Pronostico(partido_FK, equipo_FK, resultado, persona_FK)
 values
