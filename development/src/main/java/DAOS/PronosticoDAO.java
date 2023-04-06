@@ -1,5 +1,6 @@
 package DAOS;
 
+import interfaces.Daoable;
 import models.*;
 import resources.classUtility.ConexionDB;
 
@@ -10,7 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PronosticoDAO {
+public class PronosticoDAO implements Daoable<Pronostico> {
     private Connection getConnection() throws SQLException {
         return ConexionDB.getInstance();
     }

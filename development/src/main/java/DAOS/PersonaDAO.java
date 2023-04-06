@@ -1,5 +1,6 @@
 package DAOS;
 
+import interfaces.Daoable;
 import models.*;
 import resources.classUtility.ConexionDB;
 
@@ -9,7 +10,7 @@ import java.util.List;
 
 import static models.ResultadoEnum.Ganador;
 
-public class PersonaDAO {
+public class PersonaDAO implements Daoable<Persona> {
     private Connection getConnection() throws SQLException {
         return ConexionDB.getInstance();
     }
@@ -32,12 +33,14 @@ public class PersonaDAO {
     }
 
     public void addingForecastToPeoples(List<Persona> personas){
+        //Por cada persona, setearemos su pronosticos con ayuda del metodo de la linea 41, el cual retorna la una lista con todos los pronosticos de la persona en DB.
         for(Persona p : personas){
             p.setPronostico(addPronosticoPersona(p));
         }
     }
 
     private List<Pronostico> addPronosticoPersona(Persona p){
+        //Aqui almacenaremos los pronosticos de la persona.
         List<Pronostico> auxPronostico = new ArrayList<>();
 
         try(PreparedStatement stmt = getConnection()
@@ -49,11 +52,11 @@ public class PersonaDAO {
                         where Pe.idPersona = ?
                         order by Pe.idPersona;
                         """)){
-            stmt.setInt(1,p.getId());
+            stmt.setInt(1,p.getId()); //Cambiamos el '?' de la query por el ID de la persona.
 
-            try(ResultSet rs = stmt.executeQuery()){
-                while (rs.next()){
-
+            try(ResultSet rs = stmt.executeQuery()){ //Probamos ejecutar el query.
+                while (rs.next()){ //Mientras tenga filas la tabla del query iteraremos.
+                    //Rellenamos cada pronostico de la persona.
                     auxPronostico.add(
                             new Pronostico(rs.getInt("idPronostico"),
                                     new Partido(rs.getInt("idPartido"),

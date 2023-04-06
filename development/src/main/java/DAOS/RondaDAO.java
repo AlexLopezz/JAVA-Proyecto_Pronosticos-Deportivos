@@ -1,5 +1,6 @@
 package DAOS;
 
+import interfaces.Daoable;
 import models.Equipo;
 import models.Partido;
 import models.Ronda;
@@ -14,7 +15,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RondaDAO {
+public class RondaDAO implements Daoable<Ronda> {
     private Connection getConnection() throws SQLException {
         return ConexionDB.getInstance();
     }
