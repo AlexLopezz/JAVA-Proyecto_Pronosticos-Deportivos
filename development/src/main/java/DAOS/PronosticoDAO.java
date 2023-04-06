@@ -15,13 +15,13 @@ public class PronosticoDAO {
         return ConexionDB.getInstance();
     }
     public List<Pronostico> list() {
-        List<Pronostico> pronosticos = new ArrayList<Pronostico>();
+        List<Pronostico> pronosticos = new ArrayList<>();
         try(Statement stmt = getConnection().createStatement();
             ResultSet rs = stmt.executeQuery("""
                                             SELECT idPronostico, idPartido, equipo1_FK, equipo2_FK, Pr.resultado
                                             FROM Pronostico as Pr 
                                             inner join Partido as Pa on Pr.partido_fk = Pa.idPartido 
-                                            order by idPronostico""")){
+                                            order by idPronostico;""")){
 
             while (rs.next()){
                 ResultadoEnum resultado = null;
@@ -48,9 +48,5 @@ public class PronosticoDAO {
             throw new RuntimeException(e.getMessage());
         }
         return pronosticos;
-    }
-
-    public void actualizarPronosticoPersonas(List<Persona> personas){
-
     }
 }

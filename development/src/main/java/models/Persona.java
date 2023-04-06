@@ -49,6 +49,14 @@ public class Persona {
         this.pronosticos.add(pronostico);
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public List<Pronostico> getPronostico() {
         return this.pronosticos;
     }

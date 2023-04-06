@@ -47,7 +47,7 @@ public class Entrega3 {
         PartidoDAO partidoDAO = new PartidoDAO();
         PronosticoDAO pronosticoDAO = new PronosticoDAO();
         try(Connection connection = ConexionDB.getInstance()){
-
+/*
             //Obtenemos en una lista todos los partidos:
             List<Partido> partidosDB = partidoDAO.list();
             //Verificamos si hay partidos en la lista
@@ -61,8 +61,12 @@ public class Entrega3 {
             List<Pronostico> pronosticosDB = pronosticoDAO.list();
             //Verificamos si hay pronosticos en la lista
             pronosticosDB.forEach(System.out::println);
+ */
+            //Obtenemos las personas de la base de datos.
+            List<Persona> personasDB =  personaDAO.list();
+            List<Persona> persona = personaDAO.addingForecastToPeoples(personasDB);
+            persona.forEach(System.out::println);
 
-            personaDAO.list().forEach(System.out::println);
         }
     }
 
