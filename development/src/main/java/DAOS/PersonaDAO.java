@@ -31,11 +31,10 @@ public class PersonaDAO {
         return personas;
     }
 
-    public List<Persona> addingForecastToPeoples(List<Persona> personas){
+    public void addingForecastToPeoples(List<Persona> personas){
         for(Persona p : personas){
             p.setPronostico(addPronosticoPersona(p));
         }
-        return personas;
     }
 
     private List<Pronostico> addPronosticoPersona(Persona p){

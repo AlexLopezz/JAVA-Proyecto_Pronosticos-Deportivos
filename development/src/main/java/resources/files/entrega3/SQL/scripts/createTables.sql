@@ -1,4 +1,4 @@
-use railway;
+use dev_railway;
 
 CREATE TABLE Persona(
 idPersona int AUTO_INCREMENT primary key,

@@ -64,8 +64,10 @@ public class Entrega3 {
  */
             //Obtenemos las personas de la base de datos.
             List<Persona> personasDB =  personaDAO.list();
-            List<Persona> persona = personaDAO.addingForecastToPeoples(personasDB);
-            persona.forEach(System.out::println);
+            //Agregamos sus respectivos pronosticos.
+            personaDAO.addingForecastToPeoples(personasDB);
+            //Mostramos informacion de las personas
+            personasDB.forEach(System.out::println);
 
         }
     }
