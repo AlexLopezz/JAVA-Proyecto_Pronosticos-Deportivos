@@ -69,6 +69,7 @@ public class PersonaDAO {
         }
         return auxPronostico;
     }
+
     private ResultadoEnum checkResult(String resultado){
         return switch (resultado) {
             case "Ganador" -> ResultadoEnum.Ganador;

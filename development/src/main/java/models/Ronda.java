@@ -20,6 +20,7 @@ public class Ronda {
         this.partidos = new ArrayList<>();
     }
 
+
     public Ronda(int id, String descripcion, List<Partido> partidos, Fase fase) {
         this.id = id;
         this.descripcion = descripcion;
@@ -46,6 +47,14 @@ public class Ronda {
 
     public String getDescripcion() {
         return descripcion;
+    }
+
+    public Fase getFase() {
+        return fase;
+    }
+
+    public void setFase(Fase fase) {
+        this.fase = fase;
     }
 
     public void setDescripcion(String descripcion) {

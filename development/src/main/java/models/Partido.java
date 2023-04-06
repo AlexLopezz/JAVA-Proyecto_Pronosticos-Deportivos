@@ -46,7 +46,6 @@ public class Partido {
         this.equipo2 = equipo2;
         this.golesEquipo1 = golesEquipo1;
         this.golesEquipo2 = golesEquipo2;
-
         this.ronda = ronda;
     }
 

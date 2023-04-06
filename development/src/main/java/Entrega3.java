@@ -1,9 +1,11 @@
 import DAOS.PartidoDAO;
 import DAOS.PersonaDAO;
 import DAOS.PronosticoDAO;
+import DAOS.RondaDAO;
 import models.Partido;
 import models.Persona;
 import models.Pronostico;
+import models.Ronda;
 import resources.classUtility.ConexionDB;
 
 import java.sql.Connection;
@@ -62,13 +64,18 @@ public class Entrega3 {
             //Verificamos si hay pronosticos en la lista
             pronosticosDB.forEach(System.out::println);
  */
+            /*
             //Obtenemos las personas de la base de datos.
             List<Persona> personasDB =  personaDAO.list();
             //Agregamos sus respectivos pronosticos.
             personaDAO.addingForecastToPeoples(personasDB);
             //Mostramos informacion de las personas
             personasDB.forEach(System.out::println);
+             */
 
+            RondaDAO rondaDAO = new RondaDAO();
+            List<Ronda> rondas = rondaDAO.list();
+            System.out.println(rondas);
         }
     }
 

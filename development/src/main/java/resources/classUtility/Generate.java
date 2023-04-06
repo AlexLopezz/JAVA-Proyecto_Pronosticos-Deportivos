@@ -3,6 +3,7 @@ package resources.classUtility;
 import models.Equipo;
 import models.Partido;
 import models.Pronostico;
+import models.Ronda;
 import repositories.PronosticoRepositorio;
 
 //Clase utilizada para generar algunos objetos de manera sencilla a partir de un array de strings.
@@ -26,4 +27,16 @@ public class Generate {
                               PronosticoRepositorio.checkStadistics(dataPronostico[2],
                                                       dataPronostico[3]));
     };
+
+    public static Partido generatePartidoDB (int id, Equipo equipo1, Equipo equipo2,
+                                             int golesEquipo1, int golesEquipo2, Ronda ronda){
+        return new Partido(
+                id,
+                equipo1,
+                equipo2,
+                golesEquipo1,
+                golesEquipo2,
+                ronda
+        );
+    }
 }
