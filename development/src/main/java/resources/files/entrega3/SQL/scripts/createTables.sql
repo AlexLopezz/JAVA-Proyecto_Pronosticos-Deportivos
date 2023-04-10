@@ -2,8 +2,7 @@ use dev_railway;
 
 CREATE TABLE Persona(
 idPersona int AUTO_INCREMENT primary key,
-nombre varchar(20) not null,
-puntaje int default 0
+nombre varchar(20) not null
 );
 
 CREATE TABLE Fase(
@@ -44,13 +43,4 @@ persona_FK int not null,
 FOREIGN KEY (partido_FK) references Partido(idPartido),
 FOREIGN KEY (equipo_FK) references Equipo(Nombre),
 FOREIGN KEY (persona_FK) references Persona(idPersona)
-);
-
-CREATE TABLE PuntajeRonda(
-idRonda int not null,
-idPersona int not null,
-puntaje int default 0,
-primary key(idRonda, idPersona),
-FOREIGN KEY (idRonda) references Ronda(idRonda),
-FOREIGN KEY (idPersona) references Persona(idPersona)
 );

@@ -1,35 +1,33 @@
-import DAOS.PersonaDAO;
-import DAOS.RondaDAO;
+
+import models.Fase;
 import models.Persona;
+import models.Pronostico;
 import models.Ronda;
+import repositories.FaseRepositorio;
 import repositories.PersonaRepositorio;
+import resources.classUtility.ReadFilesItems;
+
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
 
 public class Entrega3 {
-    public static void main(String[] args) throws SQLException {
-        //Variables de entrada:
+    public static void main(String[] args) throws SQLException, IOException {
+
+        String csvRuta = "C:\\Users\\alexdev\\Documents\\GitHub\\JAVA-Proyecto_Pronosticos-Deportivos\\development\\src\\main\\java\\resources\\files\\entrega3\\csv\\resultados.csv";
+        FaseRepositorio fr = new FaseRepositorio();
+        ReadFilesItems rf = new ReadFilesItems(csvRuta);
+        List<Fase> fases =  fr.getItems(rf.getFileItems());
+        System.out.println(fases);
+
+
         PersonaRepositorio pr = new PersonaRepositorio();
-        RondaDAO rondaDAO = new RondaDAO();
-        PersonaDAO personaDAO = new PersonaDAO();
+        Persona tino = new Persona("Tino");
+        tino.setId(1);
 
-        //Obtenemos las personas de la base de datos.
-        List<Persona> personasDB =  personaDAO.list();
-        //Agregamos sus respectivos pronosticos.
-        personaDAO.addingForecastToPeoples(personasDB);
-
-        //Obtenemos todas las rondas de la BD.
-        List<Ronda> rondas = rondaDAO.list();
-
-        //Para que la salida del programa no sea tan extenso podriamos probar, a una sola persona de la lista de la BD.
-        Persona personaPrueba = personasDB.get(1);
-        //Rellenamos los aciertos y los puntos por ronda.
-        pr.obtenerPuntaje(personaPrueba, rondas);
-
-        //Verificamos:
-        System.out.println(personaPrueba);
-
+        List<Persona> personasDB = pr.allPersonasDB();
+        System.out.println(personasDB);
 
     }
 }

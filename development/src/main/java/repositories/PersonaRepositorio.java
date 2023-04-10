@@ -1,17 +1,19 @@
 package repositories;
 
-import exceptions.RondaException;
 import interfaces.Convertible;
 import models.*;
-import resources.classUtility.Generate;
+import resources.classUtility.ConexionDB;
+import resources.classUtility.Utilities;
+
+import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class PersonaRepositorio implements Convertible<Persona> {
+    private Connection getConnection() throws SQLException {
+        return ConexionDB.getInstance();
+    }
     @Override
-    //Devuelve una lista con todas las personas del archivo.
     public List<Persona> getItems(String[] itemsFile) {
         //Inicializamos variables de entradas.
         String nombrePersona = "";
@@ -22,90 +24,79 @@ public class PersonaRepositorio implements Convertible<Persona> {
 
         //Iteramos los datos leídos del archivo.
         for(int i=0; i < itemsFile.length / 6; i++){
-            //Guardamos los datos que vamos a usar mas tarde.
-            String[] data = {
-                    itemsFile[aux+1],
-                    itemsFile[aux+5],
-                    itemsFile[aux+2],
-                    itemsFile[aux+4]
-            };
+            //Skipeamos la primer linea, ya que solo nos da informacion de los distintos campos del archivo.
+            if(i != 0) {
+                //Guardamos los datos que vamos a usar mas tarde.
+                String[] data = {
+                        itemsFile[aux + 1],
+                        itemsFile[aux + 5],
+                        itemsFile[aux + 2],
+                        itemsFile[aux + 4]
+                };
 
-            //Evalúa si la iteración se trata de la misma persona.
-            if (!nombrePersona.equals(itemsFile[aux])) {
-                nombrePersona = itemsFile[aux];
-                auxPersona = new Persona(nombrePersona);
-                auxPersonas.add(auxPersona);
+                //Evalúa si la iteración se trata de la misma persona.
+                if (!nombrePersona.equals(itemsFile[aux])) {
+                    nombrePersona = itemsFile[aux];
+                    auxPersona = new Persona(nombrePersona);
+                    auxPersonas.add(auxPersona);
+                }
+
+                auxPronostico = Utilities.generatePronostico(data);
+
+                //Añade el pronostico a la lista de pronosticos de la persona.
+                auxPersona.addPronostico(auxPronostico);
             }
-
-            auxPronostico = Generate.generatePronostico(data);
-
-            //Añade el pronostico a la lista de pronosticos de la persona.
-            auxPersona.addPronostico(auxPronostico);
-
             aux+=6;
         }
 
         return auxPersonas;
     }
 
-    //Evalua los pronosticos de las personas con los partidos, setea el puntaje y guarda los pronosticos acertados.
-    public void obtenerPuntaje(List<Persona> personas, List<Ronda> rondas){
-        for (Persona persona : personas){
-            this.obtenerPuntaje(persona, rondas);
+/*
+    public void addingForecastToPeoples(List<Persona> personas){
+        //Por cada persona, setearemos su pronosticos con ayuda del metodo de la linea 41, el cual retorna la una lista con todos los pronosticos de la persona en DB.
+        for(Persona p : personas){
+            p.setPronostico(addPronosticoPersona(p));
         }
-    }
-    public void obtenerPuntaje(Persona persona, List<Ronda> rondas){
-        int puntaje=0;
-        Map<Ronda, Integer> dict = new HashMap<>();
-        for (Ronda ronda: rondas){
-            boolean rondaAcertada = true;
-            int puntajeRonda=0;
-            for(Pronostico pronosticoPersona: persona.getPronostico()){
-                Partido partidoPronostico = pronosticoPersona.obtenerPartidoPronostico(ronda.getPartidos());
-                if (partidoPronostico == null){ continue;}
-                switch (pronosticoPersona.puntosPartido(partidoPronostico)){
-                    case 1:
-                        puntajeRonda+=1;
-                        persona.addPronosticosAcertados(pronosticoPersona);
-                        break;
-                    case -1:
-                        rondaAcertada = false;
-                        break;
-                }
-            }
-            if (rondaAcertada) {
-                puntajeRonda += 2;
-            }
-            puntaje += puntajeRonda;
-            dict.put(ronda, puntajeRonda);
-        }
-        persona.setPuntaje(puntaje);
-        persona.setPuntajePorRonda(dict);
     }
 
-    public int obtenerPuntaje(Persona persona, List<Ronda> rondas, int cantRondas) throws RondaException {
-        //Verificamos si la cantidad de rondas no es negativa.
-        if(cantRondas > 0) {
-            //Obtenemos el puntaje total de las personas. Esto servira para que tambien obtengamos todos los puntajes por rondas.
-            this.obtenerPuntaje(persona, rondas);
-            int puntajeRonda = 0;
-
-            //La cant de rondas es menor o igual que las rondas totales, entonces iteraremos...
-            if( cantRondas <= persona.getPuntajePorRonda().size() ) {
-                for (Map.Entry<Ronda, Integer> map : persona.getPuntajePorRonda().entrySet()) {
-                    //Aca verificamos que se itere hasta la cantidad de rondas especificadas...
-                    if (map.getKey().getId() <= cantRondas) {
-                        puntajeRonda += map.getValue(); //Rellenamos los puntos por ronda hasta la ronda especificada.
-                    } else {
-                        break;
-                    }
+ */
+    public List<Persona> allPersonasDB () throws SQLException {
+        List<Persona> personas = new ArrayList<>();
+        int idPersona = 0;
+        Persona persona = null;
+        try(Statement stmt = getConnection().createStatement();
+            ResultSet rs = stmt.executeQuery(
+                """
+                        SELECT Pe.idPersona, Pe.nombre, Pr.idPronostico, Pa.idPartido, Pa.equipo1_FK, Pa.equipo2_FK, Pr.resultado
+                        FROM Pronostico as Pr
+                        inner join Partido as Pa on Pr.partido_fk = Pa.idPartido
+                        inner join Persona as Pe on Pr.persona_fk = Pe.idPersona;
+                        """)){
+            while (rs.next()){
+                if(rs.getInt("idPersona") != idPersona){
+                    idPersona = rs.getInt("idPersona");
+                    persona = new Persona(idPersona, rs.getString("nombre"));
+                    personas.add(persona);
                 }
-            }else{
-                throw new RondaException("La cantidad de rondas especificada sobrepasa las rondas actuales.");
+                persona.addPronostico(
+                        new Pronostico(
+                                rs.getInt("idPronostico"),
+                                new Partido(
+                                        rs.getInt("idPartido"),
+                                        new Equipo(rs.getString("equipo1_FK")),
+                                        new Equipo(rs.getString("equipo2_FK"))
+                                ),
+                                new Equipo(rs.getString("equipo1_FK")),
+                                Utilities.checkResult(rs.getString("resultado"))
+                        )
+                );
             }
-            return puntajeRonda; //Si salio como se esperaba devolveremos, los puntos totales hasta la ronda especificada.
-        }else {
-            throw new RondaException("Debe indicar almenos una(1) ronda.");
         }
+        return personas;
     }
+
+
+
+
 }

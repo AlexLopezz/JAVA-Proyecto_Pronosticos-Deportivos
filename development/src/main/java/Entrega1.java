@@ -2,6 +2,7 @@ import models.*;
 import repositories.PartidoRepositorio;
 import repositories.PronosticoRepositorio;
 import resources.classUtility.ReadFilesItems;
+import resources.classUtility.Utilities;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,7 +12,6 @@ public class Entrega1 {
         //Variables de entrada:
         String rutaCSV = System.getProperty("user.dir") + "\\development\\src\\main\\java\\resources\\files\\entrega1\\resultados.csv";
         PartidoRepositorio partidoRepo = new PartidoRepositorio();
-
         //Instanciamos un objeto de readFiles() para leer el archivo csv, hay que indicarle la ruta para que no dee excepciones:
         ReadFilesItems rf = new ReadFilesItems(rutaCSV);
 
@@ -38,8 +38,9 @@ public class Entrega1 {
         System.out.println("\n*Pronosticos - Archivo .csv: ");
         pronosticoFile.forEach(System.out::println);
 
+
         //Calculamos los puntos totales obtenidos por los pronósticos.
-        int puntosTotales = pronosticoRepo.puntajePronostico(pronosticoFile, partidosResultados);
+        int puntosTotales = Utilities.puntajePronostico(pronosticoFile, partidosResultados);
 
         //Visualizamos el total de puntajes obtenidos.
         System.out.println("> Puntos totales obtenidos por el acierto de los pronosticos: "+ puntosTotales);

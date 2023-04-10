@@ -83,17 +83,35 @@ public class Persona {
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("->Persona: ").append(this.nombre).append("\n")
+                .append("-> Pronosticos: \n");
+        this.pronosticos.forEach(sb::append);
+        sb.append("\n");
+        sb.append("-> Puntaje total de aciertos: ").append(this.puntaje).append("\n");
+        sb.append("-> Pronosticos acertados: \n");
+        this.pronosticosAcertados.forEach(sb::append);
+        for(Map.Entry<Ronda, Integer> entry : this.getPuntajePorRonda().entrySet()){
+            sb.append("Ronda N°= ").append(entry.getKey().getId())
+                    .append(" - ").append("Puntaje: ").append(entry.getValue()).append("\n");
+        }
+
+
+/*
         String rondaPuntaje ="";
         for(Map.Entry<Ronda, Integer> entry: this.getPuntajePorRonda().entrySet()){
-            rondaPuntaje+= "Ronda N°" + entry.getKey().getId() +
+            rondaPuntaje += "Ronda N°" + entry.getKey().getId() +
                     " - Puntaje: " + entry.getValue().toString() + "\n";
         }
-        return "\n*********************" +
-                "\n-> Persona: "+this.nombre+
-                "\n-> Pronosticos: "+ this.pronosticos+
+        "\n-> Persona: "+this.nombre+
+                "\n-> Pronosticos: \n"+ this.pronosticos+
                 "\n-> Puntaje total de aciertos: "+ this.puntaje+
                 "\n-> Pronosticos acertados: "+ this.pronosticosAcertados +
                 "\n" + rondaPuntaje +
                 "\n*********************";
+
+ */
+        return sb.toString();
     }
 }

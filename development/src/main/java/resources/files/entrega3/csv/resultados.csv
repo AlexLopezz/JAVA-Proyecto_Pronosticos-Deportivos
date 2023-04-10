@@ -1,0 +1,23 @@
+﻿Fase;Descripcion;Ronda;Equipo 1;Gol Equipo 1;Gol Equipo 2;Equipo 2
+1;Fase de grupos;1;Argentina;1;2;Arabia Saudita
+1;Fase de grupos;1;Mexico;0;0;Polonia
+1;Fase de grupos;2;Polonia;2;0;Arabia Saudita
+1;Fase de grupos;2;Argentina;2;0;Mexico
+1;Fase de grupos;3;Polonia;0;2;Argentina
+1;Fase de grupos;3;Arabia Saudita;1;2;Mexico
+2;Octavos de final;4;Paises Bajos;3;1;Estados Unidos
+2;Octavos de final;4;Argentina;2;1;Australia
+2;Octavos de final;4;Japon;1;3;Croacia
+2;Octavos de final;4;Brasil;4;1;Corea del Sur
+2;Octavos de final;4;Inglaterra;3;0;Senegal
+2;Octavos de final;4;Francia;3;1;Polonia
+2;Octavos de final;4;Marruecos;3;0;España
+2;Octavos de final;4;Portugal;6;1;Suiza
+3;Cuartos de final;5;Paises Bajos;3;4;Argentina
+3;Cuartos de final;5;Croacia;4;2;Brasil
+3;Cuartos de final;5;Inglaterra;1;2;Francia
+3;Cuartos de final;5;Marruecos;1;0;Portugal
+4;Semifinales;6;Argentina;3;0;Croacia
+4;Semifinales;6;Francia;2;0;Marruecos
+5;Tercer puesto;7;Croacia;2;1;Marruecos
+6;Final;8;Argentina;4;2;Francia
