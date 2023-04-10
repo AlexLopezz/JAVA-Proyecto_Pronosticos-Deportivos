@@ -97,6 +97,16 @@ public class Utilities {
             throw new RondaException("Debe indicar almenos una(1) ronda.");
         }
     }
+    public static void pruebita(List<Fase> fases, List<Persona> personas, String[] puntosCSV) throws IOException {
+        HashMap<String, Integer> puntos = getScoring(puntosCSV);
+        for(Fase fase : fases){
+            for(Persona persona : personas){
+
+            }
+        }
+    }
+
+
     public static ResultadoEnum checkResult(String resultado){
         return switch (resultado) {
             case "Ganador" -> ResultadoEnum.Ganador;

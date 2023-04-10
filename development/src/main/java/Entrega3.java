@@ -21,14 +21,11 @@ public class Entrega3 {
         List<Fase> fases =  fr.getItems(rf.getFileItems());
         System.out.println(fases);
 
-
+/*
         PersonaRepositorio pr = new PersonaRepositorio();
-        Persona tino = new Persona("Tino");
-        tino.setId(1);
-
         List<Persona> personasDB = pr.allPersonasDB();
         System.out.println(personasDB);
-
+ */
     }
 }
 
