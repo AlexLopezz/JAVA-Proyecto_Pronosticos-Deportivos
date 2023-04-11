@@ -10,7 +10,8 @@ public class Pronostico {
     private Partido partido;
     private Equipo equipo;
     private ResultadoEnum resultado;
-
+    private int idRonda;
+    private int idFase;
 
     public Pronostico(Partido partido, Equipo equipo) {
         this.partido = partido;
@@ -33,6 +34,15 @@ public class Pronostico {
         this.partido = partido;
         this.equipo = equipo;
         this.resultado = resultado;
+    }
+
+    public Pronostico(int id, Partido partido, Equipo equipo, ResultadoEnum resultado, int idRonda, int idFase) {
+        this.id = id;
+        this.partido = partido;
+        this.equipo = equipo;
+        this.resultado = resultado;
+        this.idRonda = idRonda;
+        this.idFase = idFase;
     }
 
     public Pronostico() {
@@ -70,6 +80,22 @@ public class Pronostico {
 
     public void setResultado(ResultadoEnum resultado) {
         this.resultado = resultado;
+    }
+
+    public int getIdRonda() {
+        return idRonda;
+    }
+
+    public void setIdRonda(int idRonda) {
+        this.idRonda = idRonda;
+    }
+
+    public int getIdFase() {
+        return idFase;
+    }
+
+    public void setIdFase(int idFase) {
+        this.idFase = idFase;
     }
 
     public int puntos(List<Partido> partidos){

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Ronda {
+public class Ronda implements Comparable {
     private int id;
     private String descripcion;
     private List<Partido> partidos;
@@ -98,5 +98,13 @@ public class Ronda {
                     .append("\n");
         }
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Ronda ronda = (Ronda) o;
+        String rondaPropia = String.valueOf(this.getId());
+        String rondaAjena = String.valueOf(ronda.getId());
+        return rondaPropia.compareTo(rondaAjena);
     }
 }

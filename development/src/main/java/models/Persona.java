@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Persona {
     private int id;
@@ -43,6 +44,10 @@ public class Persona {
 
     public void setPuntaje(int puntaje) {
         this.puntaje = puntaje;
+    }
+
+    public void addPuntaje(int puntaje){
+        this.puntaje += puntaje;
     }
 
     public void addPronostico (Pronostico pronostico){
@@ -92,12 +97,19 @@ public class Persona {
         sb.append("-> Puntaje total de aciertos: ").append(this.puntaje).append("\n");
         sb.append("-> Pronosticos acertados: \n");
         this.pronosticosAcertados.forEach(sb::append);
+
+        List<Ronda> dict_keys = new ArrayList<>();
+
         for(Map.Entry<Ronda, Integer> entry : this.getPuntajePorRonda().entrySet()){
-            sb.append("Ronda N°= ").append(entry.getKey().getId())
-                    .append(" - ").append("Puntaje: ").append(entry.getValue()).append("\n");
+            dict_keys.add(entry.getKey());
         }
 
+        List<Ronda> sortedDict_keys = dict_keys.stream().sorted().toList();
 
+        for (Ronda sortedDictKey : sortedDict_keys) {
+            sb.append("Ronda N°= ").append(sortedDictKey.getId())
+                    .append(" - ").append("Puntaje: ").append(this.getPuntajePorRonda().get(sortedDictKey)).append("\n");
+        }
 /*
         String rondaPuntaje ="";
         for(Map.Entry<Ronda, Integer> entry: this.getPuntajePorRonda().entrySet()){

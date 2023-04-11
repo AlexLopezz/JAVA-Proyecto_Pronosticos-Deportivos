@@ -68,10 +68,12 @@ public class PersonaRepositorio implements Convertible<Persona> {
         try(Statement stmt = getConnection().createStatement();
             ResultSet rs = stmt.executeQuery(
                 """
-                        SELECT Pe.idPersona, Pe.nombre, Pr.idPronostico, Pa.idPartido, Pa.equipo1_FK, Pa.equipo2_FK, Pr.resultado
-                        FROM Pronostico as Pr
-                        inner join Partido as Pa on Pr.partido_fk = Pa.idPartido
-                        inner join Persona as Pe on Pr.persona_fk = Pe.idPersona;
+                        SELECT Pe.idPersona, Pe.nombre, Pr.idPronostico, Pa.idPartido, Pa.equipo1_FK, Pa.equipo2_FK, Pr.resultado, R.idRonda, R.fase_fk
+                                                FROM Pronostico as Pr
+                                                inner join Partido as Pa on Pr.partido_fk = Pa.idPartido
+                                                inner join Persona as Pe on Pr.persona_fk = Pe.idPersona
+                                                inner join Ronda as R on Pa.ronda_fk = R.idRonda 
+                                                order by idPronostico;
                         """)){
             while (rs.next()){
                 if(rs.getInt("idPersona") != idPersona){
@@ -88,7 +90,9 @@ public class PersonaRepositorio implements Convertible<Persona> {
                                         new Equipo(rs.getString("equipo2_FK"))
                                 ),
                                 new Equipo(rs.getString("equipo1_FK")),
-                                Utilities.checkResult(rs.getString("resultado"))
+                                Utilities.checkResult(rs.getString("resultado")),
+                                rs.getInt("idRonda"),
+                                rs.getInt("fase_fk")
                         )
                 );
             }

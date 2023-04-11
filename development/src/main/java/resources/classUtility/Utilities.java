@@ -97,14 +97,6 @@ public class Utilities {
             throw new RondaException("Debe indicar almenos una(1) ronda.");
         }
     }
-    public static void pruebita(List<Fase> fases, List<Persona> personas, String[] puntosCSV) throws IOException {
-        HashMap<String, Integer> puntos = getScoring(puntosCSV);
-        for(Fase fase : fases){
-            for(Persona persona : personas){
-
-            }
-        }
-    }
 
 
     public static ResultadoEnum checkResult(String resultado){
@@ -132,4 +124,62 @@ public class Utilities {
         }
         return puntos;
     }
+
+    public static void setPuntajePersona(List<Persona> personas, List<Fase> fases){
+        for (Persona p : personas){
+            getScoreDB(p, fases);
+        }
+        /*
+        for(Persona persona : personas){
+            for (Pronostico pronosticoActual : persona.getPronostico()){
+                Fase faseActual = fases.stream().filter(
+                        fase -> fase.getIdFase() == pronosticoActual.getIdFase()
+                ).findFirst().get();
+                Ronda rondaActual = faseActual.getRondas().stream().filter(
+                        ronda -> ronda.getId() == pronosticoActual.getIdRonda()
+                ).findFirst().get();
+                Partido partidoActual = rondaActual.getPartidos().stream().filter(
+                        partido -> partido.getId() == pronosticoActual.getPartido().getId()
+                ).findFirst().get();
+            }*/
+    }
+
+    public static void getScoreDB(Persona persona, List<Fase> fases) {
+        int puntaje = 0;
+        Map<Ronda, Integer> dict = new HashMap<>();
+        for (Fase fase : fases) {
+            boolean faseAcertada = true;
+            for (Ronda ronda : fase.getRondas()) {
+                boolean rondaAcertada = true;
+                int puntajeRonda = 0;
+                for (Pronostico pronosticoPersona : persona.getPronostico()) {
+                    Partido partidoPronostico = pronosticoPersona.obtenerPartidoPronostico(ronda.getPartidos());
+                    if (partidoPronostico == null) {
+                        continue;
+                    }
+                    switch (pronosticoPersona.puntosPartido(partidoPronostico)) {
+                        case 1:
+                            puntajeRonda += 1;
+                            persona.addPronosticosAcertados(pronosticoPersona);
+                            break;
+                        case -1:
+                            rondaAcertada = false;
+                            faseAcertada = false;
+                            break;
+                    }
+                }
+                if (rondaAcertada) {
+                    puntajeRonda += 2;
+                }
+                puntaje += puntajeRonda;
+                dict.put(ronda, puntajeRonda);
+            }
+            if (faseAcertada){
+                puntaje += 2;
+            }
+        }
+        persona.setPuntaje(puntaje);
+        persona.setPuntajePorRonda(dict);
+    }
 }
+
