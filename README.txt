@@ -10,4 +10,4 @@ A tener en cuenta:
 explicar el tema para poder entender lo que hay que hacer.
 
 Repositorio unica y exclusivamente creado para realizar el desarrollo de la aplicacion del trabajo practico integrador.
-Argentina Programa 2023 | Integrantes: Ferrucci Constantino, y Lopez Alexander, Escudero Alex Daniel.
+Argentina Programa 2023 | Integrantes: Ferrucci Constantino, Lopez Alexander y Escudero Alex Daniel.
