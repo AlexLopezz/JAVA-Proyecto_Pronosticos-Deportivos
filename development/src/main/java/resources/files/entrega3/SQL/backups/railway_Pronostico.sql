@@ -35,7 +35,7 @@ CREATE TABLE `Pronostico` (
   CONSTRAINT `Pronostico_ibfk_1` FOREIGN KEY (`partido_FK`) REFERENCES `Partido` (`idPartido`),
   CONSTRAINT `Pronostico_ibfk_2` FOREIGN KEY (`equipo_FK`) REFERENCES `Equipo` (`Nombre`),
   CONSTRAINT `Pronostico_ibfk_3` FOREIGN KEY (`persona_FK`) REFERENCES `Persona` (`idPersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `Pronostico` (
 
 LOCK TABLES `Pronostico` WRITE;
 /*!40000 ALTER TABLE `Pronostico` DISABLE KEYS */;
-INSERT INTO `Pronostico` VALUES (1,1,'Argentina','Ganador',1),(2,2,'Mexico','Ganador',1),(3,3,'Polonia','Ganador',1),(4,4,'Argentina','Ganador',1),(5,5,'Polonia','Ganador',1),(6,6,'Arabia Saudita','Ganador',1),(7,7,'Paises Bajos','Ganador',1),(8,8,'Argentina','Empate',1),(9,9,'Paises Bajos','Empate',1),(10,10,'Croacia','Empate',1),(11,11,'Argentina','Perdedor',1),(12,12,'Francia','Empate',1),(13,13,'Argentina','Empate',1),(14,14,'Croacia','Empate',1),(15,1,'Argentina','Empate',2),(16,2,'Mexico','Empate',2),(17,3,'Polonia','Perdedor',2),(18,4,'Argentina','Empate',2),(19,5,'Polonia','Empate',2),(20,6,'Arabia Saudita','Empate',2),(21,7,'Paises Bajos','Ganador',2),(22,8,'Argentina','Perdedor',2),(23,9,'Paises Bajos','Empate',2),(24,10,'Croacia','Ganador',2),(25,11,'Argentina','Perdedor',2),(26,12,'Francia','Empate',2),(27,13,'Argentina','Ganador',2),(28,14,'Croacia','Empate',2),(29,1,'Argentina','Perdedor',3),(30,2,'Mexico','Perdedor',3),(31,3,'Polonia','Perdedor',3),(32,4,'Argentina','Perdedor',3),(33,5,'Polonia','Ganador',3),(34,6,'Arabia Saudita','Ganador',3),(35,7,'Paises Bajos','Ganador',3),(36,8,'Argentina','Ganador',3),(37,9,'Paises Bajos','Ganador',3),(38,10,'Croacia','Ganador',3),(39,11,'Argentina','Empate',3),(40,12,'Francia','Ganador',3),(41,13,'Argentina','Ganador',3),(42,14,'Croacia','Ganador',3);
+INSERT INTO `Pronostico` VALUES (1,1,'Argentina','Perdedor',1),(2,2,'Mexico','Empate',1),(3,3,'Polonia','Ganador',1),(4,4,'Argentina','Perdedor',1),(5,5,'Polonia','Empate',1),(6,6,'Arabia Saudita','Empate',1),(7,7,'Paises Bajos','Ganador',1),(8,8,'Argentina','Ganador',1),(9,9,'Japon','Ganador',1),(10,10,'Brasil','Ganador',1),(11,11,'Inglaterra','Ganador',1),(12,12,'Francia','Perdedor',1),(13,13,'Marruecos','Ganador',1),(14,14,'Portugal','Perdedor',1),(15,15,'Paises Bajos','Perdedor',1),(16,16,'Croacia','Ganador',1),(17,17,'Inglaterra','Ganador',1),(18,18,'Marruecos','Perdedor',1),(19,19,'Argentina','Ganador',1),(20,20,'Francia','Perdedor',1),(21,21,'Croacia','Ganador',1),(22,22,'Argentina','Ganador',1),(23,1,'Argentina','Empate',2),(24,2,'Mexico','Empate',2),(25,3,'Polonia','Ganador',2),(26,4,'Argentina','Perdedor',2),(27,5,'Polonia','Perdedor',2),(28,6,'Arabia Saudita','Ganador',2),(29,7,'Paises Bajos','Ganador',2),(30,8,'Argentina','Ganador',2),(31,9,'Japon','Perdedor',2),(32,10,'Brasil','Ganador',2),(33,11,'Inglaterra','Ganador',2),(34,12,'Francia','Perdedor',2),(35,13,'Marruecos','Perdedor',2),(36,14,'Portugal','Ganador',2),(37,15,'Paises Bajos','Ganador',2),(38,16,'Croacia','Ganador',2),(39,17,'Inglaterra','Perdedor',2),(40,18,'Marruecos','Ganador',2),(41,19,'Argentina','Perdedor',2),(42,20,'Francia','Perdedor',2),(43,21,'Croacia','Perdedor',2),(44,22,'Argentina','Ganador',2),(45,1,'Argentina','Ganador',3),(46,2,'Mexico','Empate',3),(47,3,'Polonia','Empate',3),(48,4,'Argentina','Perdedor',3),(49,5,'Polonia','Ganador',3),(50,6,'Arabia Saudita','Ganador',3),(51,7,'Paises Bajos','Ganador',3),(52,8,'Argentina','Perdedor',3),(53,9,'Japon','Ganador',3),(54,10,'Brasil','Ganador',3),(55,11,'Inglaterra','Ganador',3),(56,12,'Francia','Ganador',3),(57,13,'Marruecos','Ganador',3),(58,14,'Portugal','Ganador',3),(59,15,'Paises Bajos','Perdedor',3),(60,16,'Croacia','Perdedor',3),(61,17,'Inglaterra','Ganador',3),(62,18,'Marruecos','Perdedor',3),(63,19,'Argentina','Ganador',3),(64,20,'Francia','Ganador',3),(65,21,'Croacia','Ganador',3),(66,22,'Argentina','Ganador',3);
 /*!40000 ALTER TABLE `Pronostico` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-04 18:21:03
+-- Dump completed on 2023-04-11  9:38:29

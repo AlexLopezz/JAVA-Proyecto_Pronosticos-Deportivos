@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Persona {
+public class Persona implements Comparable {
     private int id;
     private String nombre;
     private int puntaje;
@@ -101,6 +101,7 @@ public class Persona {
         List<Ronda> dict_keys = new ArrayList<>();
 
         for(Map.Entry<Ronda, Integer> entry : this.getPuntajePorRonda().entrySet()){
+            if (entry.getValue() == 0){continue;}
             dict_keys.add(entry.getKey());
         }
 
@@ -110,20 +111,14 @@ public class Persona {
             sb.append("Ronda N°= ").append(sortedDictKey.getId())
                     .append(" - ").append("Puntaje: ").append(this.getPuntajePorRonda().get(sortedDictKey)).append("\n");
         }
-/*
-        String rondaPuntaje ="";
-        for(Map.Entry<Ronda, Integer> entry: this.getPuntajePorRonda().entrySet()){
-            rondaPuntaje += "Ronda N°" + entry.getKey().getId() +
-                    " - Puntaje: " + entry.getValue().toString() + "\n";
-        }
-        "\n-> Persona: "+this.nombre+
-                "\n-> Pronosticos: \n"+ this.pronosticos+
-                "\n-> Puntaje total de aciertos: "+ this.puntaje+
-                "\n-> Pronosticos acertados: "+ this.pronosticosAcertados +
-                "\n" + rondaPuntaje +
-                "\n*********************";
-
- */
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Persona otro = (Persona) o;
+        String puntajePropio = String.valueOf(this.getPuntaje());
+        String puntajeOtro = String.valueOf(otro.getPuntaje());
+        return puntajeOtro.compareTo(puntajePropio);
     }
 }

@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import repositories.PersonaRepositorio;
 import repositories.RondaRepositorio;
 import resources.classUtility.ReadFilesItems;
+import resources.classUtility.Utilities;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -79,15 +80,15 @@ public class RondaTest {
         pronosticosPersona.add(pronostico4);
 
         persona.setPronostico(pronosticosPersona);
-
     }
+
 
     @Nested
     class testCalcularPuntaje {
 
         @Test
         void calcularPuntajeTest() throws RondaException {
-            int puntajeRonda = pr.obtenerPuntaje(persona, rondas, 2); // Tendria que dar 5 puntos, ya que acerto 2(4 por el plus) de la ronda 1, y 1 de la ronda 2.
+            int puntajeRonda = Utilities.getScore(rondas, 2, persona); // Tendria que dar 5 puntos, ya que acerto 2(4 por el plus) de la ronda 1, y 1 de la ronda 2.
             assertEquals(5, puntajeRonda);
         }
 
@@ -96,7 +97,7 @@ public class RondaTest {
         void calcularPuntajeTest2() {
             //Verificamos si las excepiones funciona de manera correcta: Si se le pasa una cantidad de rondas negativas, debera tirar excepcion.
             Exception ex = assertThrows(RondaException.class, () ->
-                pr.obtenerPuntaje(persona, rondas, -10));
+                    Utilities.getScore(rondas, -10, persona));
 
             String messageActual = ex.getMessage();
             String messageExpected = "Debe indicar almenos una(1) ronda.";
@@ -108,7 +109,7 @@ public class RondaTest {
         void calcularPuntajeTest3(){
             //Verificamos si la excepcion funcionaa de manera correcta: Si le indicamos una cantidad de ronda mayor a las rondas totales, debera tirar excepcion.
             Exception ex = assertThrows(RondaException.class, () ->
-                pr.obtenerPuntaje(persona, rondas, 350));
+                    Utilities.getScore(rondas, 350, persona));
 
             String messageActual = ex.getMessage();
             String messageExpected = "La cantidad de rondas especificada sobrepasa las rondas actuales.";

@@ -52,15 +52,6 @@ public class PersonaRepositorio implements Convertible<Persona> {
         return auxPersonas;
     }
 
-/*
-    public void addingForecastToPeoples(List<Persona> personas){
-        //Por cada persona, setearemos su pronosticos con ayuda del metodo de la linea 41, el cual retorna la una lista con todos los pronosticos de la persona en DB.
-        for(Persona p : personas){
-            p.setPronostico(addPronosticoPersona(p));
-        }
-    }
-
- */
     public List<Persona> allPersonasDB () throws SQLException {
         List<Persona> personas = new ArrayList<>();
         int idPersona = 0;
@@ -99,8 +90,4 @@ public class PersonaRepositorio implements Convertible<Persona> {
         }
         return personas;
     }
-
-
-
-
 }

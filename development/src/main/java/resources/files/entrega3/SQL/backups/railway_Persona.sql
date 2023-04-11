@@ -25,7 +25,6 @@ DROP TABLE IF EXISTS `Persona`;
 CREATE TABLE `Persona` (
   `idPersona` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(20) NOT NULL,
-  `puntaje` int DEFAULT '0',
   PRIMARY KEY (`idPersona`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -36,7 +35,7 @@ CREATE TABLE `Persona` (
 
 LOCK TABLES `Persona` WRITE;
 /*!40000 ALTER TABLE `Persona` DISABLE KEYS */;
-INSERT INTO `Persona` VALUES (1,'Tino',0),(2,'Alex',0),(3,'Juan',0);
+INSERT INTO `Persona` VALUES (1,'Tino'),(2,'Alex'),(3,'Ezequiel');
 /*!40000 ALTER TABLE `Persona` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-04 18:21:18
+-- Dump completed on 2023-04-11  9:38:24

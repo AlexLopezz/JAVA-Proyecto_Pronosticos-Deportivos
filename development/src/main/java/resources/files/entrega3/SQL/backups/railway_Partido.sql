@@ -28,18 +28,15 @@ CREATE TABLE `Partido` (
   `equipo2_FK` varchar(30) NOT NULL,
   `golesEquipo1` int DEFAULT '0',
   `golesEquipo2` int DEFAULT '0',
-  `fase_FK` int NOT NULL,
   `ronda_FK` int NOT NULL,
   PRIMARY KEY (`idPartido`),
   KEY `equipo1_FK` (`equipo1_FK`),
   KEY `equipo2_FK` (`equipo2_FK`),
-  KEY `fase_FK` (`fase_FK`),
   KEY `ronda_FK` (`ronda_FK`),
   CONSTRAINT `Partido_ibfk_1` FOREIGN KEY (`equipo1_FK`) REFERENCES `Equipo` (`Nombre`),
   CONSTRAINT `Partido_ibfk_2` FOREIGN KEY (`equipo2_FK`) REFERENCES `Equipo` (`Nombre`),
-  CONSTRAINT `Partido_ibfk_3` FOREIGN KEY (`fase_FK`) REFERENCES `Fase` (`idFase`),
-  CONSTRAINT `Partido_ibfk_4` FOREIGN KEY (`ronda_FK`) REFERENCES `Ronda` (`idRonda`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `Partido_ibfk_3` FOREIGN KEY (`ronda_FK`) REFERENCES `Ronda` (`idRonda`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,7 +45,7 @@ CREATE TABLE `Partido` (
 
 LOCK TABLES `Partido` WRITE;
 /*!40000 ALTER TABLE `Partido` DISABLE KEYS */;
-INSERT INTO `Partido` VALUES (1,'Argentina','Arabia Saudita',1,2,1,1),(2,'Mexico','Polonia',0,0,1,1),(3,'Polonia','Arabia Saudita',2,0,1,2),(4,'Argentina','Mexico',2,0,1,2),(5,'Polonia','Argentina',0,2,1,3),(6,'Arabia Saudita','Mexico',1,2,1,3),(7,'Paises Bajos','Estados Unidos',3,1,2,4),(8,'Argentina','Australia',2,1,2,4),(9,'Paises Bajos','Argentina',3,4,2,5),(10,'Croacia','Brasil',4,2,2,5),(11,'Argentina','Croacia',3,0,2,6),(12,'Francia','Marruecos',2,0,2,6),(13,'Argentina','Francia',4,2,2,7),(14,'Croacia','Marruecos',2,1,2,7);
+INSERT INTO `Partido` VALUES (1,'Argentina','Arabia Saudita',1,2,1),(2,'Mexico','Polonia',0,0,1),(3,'Polonia','Arabia Saudita',2,0,2),(4,'Argentina','Mexico',2,0,2),(5,'Polonia','Argentina',0,2,3),(6,'Arabia Saudita','Mexico',1,2,3),(7,'Paises Bajos','Estados Unidos',3,1,4),(8,'Argentina','Australia',2,1,4),(9,'Japon','Croacia',1,3,4),(10,'Brasil','Corea del Sur',4,1,4),(11,'Inglaterra','Senegal',4,1,4),(12,'Francia','Polonia',3,1,4),(13,'Marruecos','España',3,1,4),(14,'Portugal','Suiza',6,1,4),(15,'Paises Bajos','Argentina',3,4,5),(16,'Croacia','Brasil',4,2,5),(17,'Inglaterra','Francia',1,2,5),(18,'Marruecos','Portugal',1,0,5),(19,'Argentina','Croacia',3,0,6),(20,'Francia','Marruecos',2,0,6),(21,'Croacia','Marruecos',2,1,7),(22,'Argentina','Francia',4,2,8);
 /*!40000 ALTER TABLE `Partido` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -61,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-04 18:21:13
+-- Dump completed on 2023-04-11  9:38:34

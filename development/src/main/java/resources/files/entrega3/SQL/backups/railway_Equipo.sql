@@ -35,7 +35,7 @@ CREATE TABLE `Equipo` (
 
 LOCK TABLES `Equipo` WRITE;
 /*!40000 ALTER TABLE `Equipo` DISABLE KEYS */;
-INSERT INTO `Equipo` VALUES ('Arabia Saudita',''),('Argentina',''),('Australia',''),('Brasil',''),('Croacia',''),('Estados Unidos',''),('Francia',''),('Marruecos',''),('Mexico',''),('Paises Bajos',''),('Polonia','');
+INSERT INTO `Equipo` VALUES ('Arabia Saudita',''),('Argentina',''),('Australia',''),('Brasil',''),('Corea del Sur',''),('Croacia',''),('España',''),('Estados Unidos',''),('Francia',''),('Inglaterra',''),('Japon',''),('Marruecos',''),('Mexico',''),('Paises Bajos',''),('Polonia',''),('Portugal',''),('Senegal',''),('Suiza','');
 /*!40000 ALTER TABLE `Equipo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-04 18:21:34
+-- Dump completed on 2023-04-11  9:38:38

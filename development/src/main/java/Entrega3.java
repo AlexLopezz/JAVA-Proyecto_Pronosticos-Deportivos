@@ -26,6 +26,8 @@ public class Entrega3 {
         List<Persona> personasDB = pr.allPersonasDB();
         Utilities.setPuntajePersona(personasDB, fases);
         System.out.println(personasDB);
+
+        Utilities.rankingParticipantes(personasDB);
     }
 }
 

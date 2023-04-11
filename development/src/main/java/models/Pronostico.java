@@ -121,7 +121,6 @@ public class Pronostico {
     }
 
     public Partido obtenerPartidoPronostico (List <Partido> partidos){
-
         return partidos.stream().filter(
                         p -> p.equals(this.partido))
                 .findAny().orElse(null);

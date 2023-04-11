@@ -24,9 +24,12 @@ DROP TABLE IF EXISTS `Ronda`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Ronda` (
   `idRonda` int NOT NULL AUTO_INCREMENT,
+  `fase_fk` int NOT NULL,
   `descripcion` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`idRonda`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`idRonda`),
+  KEY `fase_fk` (`fase_fk`),
+  CONSTRAINT `Ronda_ibfk_1` FOREIGN KEY (`fase_fk`) REFERENCES `Fase` (`idFase`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +38,7 @@ CREATE TABLE `Ronda` (
 
 LOCK TABLES `Ronda` WRITE;
 /*!40000 ALTER TABLE `Ronda` DISABLE KEYS */;
-INSERT INTO `Ronda` VALUES (1,'Primera fecha'),(2,'Segundo fecha'),(3,'Tercer fecha'),(4,'Octavos de final'),(5,'Cuartos de final'),(6,'Semifinal'),(7,'Final y Tercer puesto');
+INSERT INTO `Ronda` VALUES (1,1,'Fase de grupos'),(2,1,'Fase de grupos'),(3,1,'Fase de grupos'),(4,2,'8 equipos finalistas.'),(5,3,'4 equipos finalistas.'),(6,4,'2 equipos finalistas.'),(7,5,'Tercer puesto '),(8,6,'Se define Campeon');
 /*!40000 ALTER TABLE `Ronda` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-04 18:21:08
+-- Dump completed on 2023-04-11  9:38:43

@@ -39,6 +39,14 @@ public class Utilities {
 
         return scoring;
     }
+
+    // Entrega 2
+    public static void getScore(List<Persona> personas, List<Ronda> rondas){
+        for (Persona persona : personas){
+            getScore(persona, rondas);
+        }
+    }
+
     public static void getScore(Persona persona, List<Ronda> rondas){
         int puntaje=0;
         Map<Ronda, Integer> dict = new HashMap<>();
@@ -67,11 +75,7 @@ public class Utilities {
         persona.setPuntaje(puntaje);
         persona.setPuntajePorRonda(dict);
     }
-    public static void getScore(List<Persona> personas, List<Ronda> rondas){
-        for (Persona persona : personas){
-            getScore(persona, rondas);
-        }
-    }
+
     public static int getScore(List<Ronda> rondas, int cantRondas, Persona persona) throws RondaException {
         //Verificamos si la cantidad de rondas no es negativa.
         if(cantRondas > 0) {
@@ -125,26 +129,18 @@ public class Utilities {
         return puntos;
     }
 
-    public static void setPuntajePersona(List<Persona> personas, List<Fase> fases){
+    public static void setPuntajePersona(List<Persona> personas, List<Fase> fases) throws IOException {
         for (Persona p : personas){
             getScoreDB(p, fases);
         }
-        /*
-        for(Persona persona : personas){
-            for (Pronostico pronosticoActual : persona.getPronostico()){
-                Fase faseActual = fases.stream().filter(
-                        fase -> fase.getIdFase() == pronosticoActual.getIdFase()
-                ).findFirst().get();
-                Ronda rondaActual = faseActual.getRondas().stream().filter(
-                        ronda -> ronda.getId() == pronosticoActual.getIdRonda()
-                ).findFirst().get();
-                Partido partidoActual = rondaActual.getPartidos().stream().filter(
-                        partido -> partido.getId() == pronosticoActual.getPartido().getId()
-                ).findFirst().get();
-            }*/
     }
 
-    public static void getScoreDB(Persona persona, List<Fase> fases) {
+    private static void getScoreDB(Persona persona, List<Fase> fases) throws IOException {
+        String path = System.getProperty("user.dir") + "\\development\\src\\main\\java\\resources\\files\\entrega3\\csv\\puntaje-ronda.csv";
+        ReadFilesItems rf = new ReadFilesItems(path);
+
+        HashMap<String, Integer> valorPuntaje = getScoring(rf.getFileItems());
+
         int puntaje = 0;
         Map<Ronda, Integer> dict = new HashMap<>();
         for (Fase fase : fases) {
@@ -159,7 +155,7 @@ public class Utilities {
                     }
                     switch (pronosticoPersona.puntosPartido(partidoPronostico)) {
                         case 1:
-                            puntajeRonda += 1;
+                            puntajeRonda += valorPuntaje.get("Puntaje por Resultado");
                             persona.addPronosticosAcertados(pronosticoPersona);
                             break;
                         case -1:
@@ -169,17 +165,25 @@ public class Utilities {
                     }
                 }
                 if (rondaAcertada) {
-                    puntajeRonda += 2;
+                    puntajeRonda += valorPuntaje.get("Puntaje por Ronda");
                 }
                 puntaje += puntajeRonda;
                 dict.put(ronda, puntajeRonda);
             }
             if (faseAcertada){
-                puntaje += 2;
+                puntaje += valorPuntaje.get("Puntaje por Fase");
             }
         }
         persona.setPuntaje(puntaje);
         persona.setPuntajePorRonda(dict);
+    }
+
+    public static void rankingParticipantes(List<Persona> personas) {
+        List<Persona> personasOrdenadas = personas.stream().sorted().toList();
+        System.out.println("Ranking de participantes:");
+        for (Persona person : personasOrdenadas){
+            System.out.println(person.getNombre() + ": " + person.getPuntaje());
+        }
     }
 }
 

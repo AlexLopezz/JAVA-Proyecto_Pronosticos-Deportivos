@@ -80,11 +80,4 @@ public class PronosticoRepositorio implements Convertible<Pronostico> {
         }
         return auxPronostico;
     }
-
-    //Retorna a partir de las columnas de pronosticos el resultado del primer equipo en cada partido.
-
-
-
-
-
 }
