@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class ConexionDB {
     // Primero debemos obtener el URL, User y Pass de mysql a donde vamos a conectarnos:
-    static final String urlMySQL = "jdbc:mysql://root:FI3Ct9MPoTNd0VnZQmMy@containers-us-west-50.railway.app:6492/railway";
-    static final String userMySQL = "root";
-    static final String passMySQL = "FI3Ct9MPoTNd0VnZQmMy";
+    static final String urlMySQL = "jdbc:mysql://mysql-alexdev.alwaysdata.net/alexdev_sports_diagnostics";
+    static final String userMySQL = "alexdev";
+    static final String passMySQL = "045195@Lex";
     //Aqui guardaremos la conexion. Una vez realizada la conexion, siempre obtendremos la misma conexion. (Singlenton)
     static Connection connection;
     //Para lograr obtener siempre una misma conexion, debemos modificar el acceso al constructor, es decir ponerlo en privado.
