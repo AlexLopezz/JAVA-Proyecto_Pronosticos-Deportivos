@@ -88,7 +88,7 @@ public class RondaTest {
 
         @Test
         void calcularPuntajeTest() throws RondaException {
-            int puntajeRonda = Utilities.getScore(rondas, 2, persona); // Tendria que dar 5 puntos, ya que acerto 2(4 por el plus) de la ronda 1, y 1 de la ronda 2.
+            int puntajeRonda = Entrega2.getScore(rondas, 2, persona); // Tendria que dar 5 puntos, ya que acerto 2(4 por el plus) de la ronda 1, y 1 de la ronda 2.
             assertEquals(5, puntajeRonda);
         }
 
@@ -97,7 +97,7 @@ public class RondaTest {
         void calcularPuntajeTest2() {
             //Verificamos si las excepiones funciona de manera correcta: Si se le pasa una cantidad de rondas negativas, debera tirar excepcion.
             Exception ex = assertThrows(RondaException.class, () ->
-                    Utilities.getScore(rondas, -10, persona));
+                    Entrega2.getScore(rondas, -10, persona));
 
             String messageActual = ex.getMessage();
             String messageExpected = "Debe indicar almenos una(1) ronda.";
@@ -109,7 +109,7 @@ public class RondaTest {
         void calcularPuntajeTest3(){
             //Verificamos si la excepcion funcionaa de manera correcta: Si le indicamos una cantidad de ronda mayor a las rondas totales, debera tirar excepcion.
             Exception ex = assertThrows(RondaException.class, () ->
-                    Utilities.getScore(rondas, 350, persona));
+                    Entrega2.getScore(rondas, 350, persona));
 
             String messageActual = ex.getMessage();
             String messageExpected = "La cantidad de rondas especificada sobrepasa las rondas actuales.";

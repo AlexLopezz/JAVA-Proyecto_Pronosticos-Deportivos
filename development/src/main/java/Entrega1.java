@@ -22,7 +22,7 @@ public class Entrega1 {
      * Utiliza:
      *  -> {@link ReadFilesItems} - {@link ReadFilesItems#getFileItems()}
      *  -> 2 repositorios: {@link PartidoRepositorio}, {@link PronosticoRepositorio}.
-     *  -> Un metodo estatico de la clase: {@link Utilities#puntajePronostico(List, List)}
+     *  -> Un metodo estatico de la clase: {@link Entrega1#getScore(List, List)}
      */
     public static void main(String[] args) throws IOException {
         // Inicializamos los repositorios y ademas la clase que se encargara de leer los .csv
@@ -57,10 +57,26 @@ public class Entrega1 {
         pronosticoFile.forEach(System.out::println);
 
         //Calculamos los puntos totales obtenidos por los pronósticos.
-        int puntosTotales = Utilities.puntajePronostico(pronosticoFile, partidosResultados);
+        int puntosTotales = getScore(pronosticoFile, partidosResultados);
 
         //Visualizamos el total de puntajes obtenidos de acuerdo a los aciertos:
         System.out.println("> Puntos totales obtenidos por el acierto de los pronosticos: "+ puntosTotales);
+    }
+
+    /**
+     *  Este metodo sirve para denotar los puntos totales por la cantidad de aciertos
+     * de los pronosticos.
+     * 
+     * @param pronosticos recibe una lista de pronosticos.
+     * @param partidos recibe una lista de partidos.
+     * @return un entero, el cual almacena los puntos totales acertados por los pronosticos 
+     */
+    static int getScore(List<Pronostico> pronosticos, List<Partido> partidos){
+        int puntos = 0;
+        for( Pronostico p : pronosticos){
+            puntos += p.puntos(partidos);
+        }
+        return puntos;
     }
 }
 /*
