@@ -64,6 +64,9 @@ public class Entrega3 {
     }
 
     /**
+     *   Este metodo itera una lista de personas en la cual ejecuta el método getScore el cual
+     *  asigna el puntaje correspondiente a cada persona de la lista dada una lista de fase
+     *  la cual es la que se encarga de llevar las rondas jugadas (y dentro de ella los partidos)
      *
      * @param personas Un listado de personas
      * @param fases Un listado de fases
@@ -77,10 +80,13 @@ public class Entrega3 {
     }
 
     /**
+     *   Este metodo asigna a la persona que se pasa como parámetro el puntaje correspondiente
+     *  en función de los partidos que fueron pasados a partir de la
      *
-     * @param persona
-     * @param fases
-     * @throws IOException
+     * @param persona Una persona
+     * @param fases Un listado de fases
+     * @throws IOException arroja este error ya que el metodo getFileItems de la clase ReadFileItems
+     * arroja este error si no se le pasa una ruta CSV para leer.
      */
     static void getScore(Persona persona, List<Fase> fases) throws IOException {
         String path = System.getProperty("user.dir") + "\\development\\src\\main\\java\\resources\\files\\entrega3\\csv\\puntaje-ronda.csv";
