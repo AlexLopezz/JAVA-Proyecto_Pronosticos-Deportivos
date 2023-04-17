@@ -46,7 +46,7 @@ public class Entrega3 {
     }
 
     /**
-     *  Este metodo lee un arreglo de String,y retorna en un HashMap toda esa informacion acerca
+     *   Este metodo lee un arreglo de String,y retorna en un HashMap toda esa informacion acerca
      *  de los puntajes de los aciertos y puntos extras.
      *
      * @param fileItems Un string, con los datos que provengan de un .csv
@@ -126,8 +126,11 @@ public class Entrega3 {
     }
 
     /**
+     *  Este metodo lo que realiza es mostrar el nombre y el puntaje de una lista
+     * de personas, pero con la particularidad, que mostrara en un orden descendente
+     * a fin de mostrar quien obtuvo mas puntaje, hasta quien obtuvo el menor puntaje.
      *
-     * @param personas
+     * @param personas Un listado de personas con puntajes y aciertos cargados.
      */
     static void rankingParticipantes(List<Persona> personas) {
         List<Persona> personasOrdenadas = personas.stream().sorted().toList();

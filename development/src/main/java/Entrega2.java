@@ -66,7 +66,7 @@ public class Entrega2 {
     }
 
     /**
-     *  Este metodo es similar a {@link #getScore(List, List)} pero con la particularidad, que ahora
+     *   Este metodo es similar a {@link #getScore(List, List)} pero con la particularidad, que ahora
      *  le pasariamos un solo objeto Persona, y un listado de Rondas, por lo cual comprobaria todos los aciertos
      *  de una sola Persona.
      * @param persona un objeto de tipo Persona
@@ -81,14 +81,12 @@ public class Entrega2 {
             for(Pronostico pronosticoPersona: persona.getPronostico()){
                 Partido partidoPronostico = pronosticoPersona.obtenerPartidoPronostico(ronda.getPartidos());
                 if (partidoPronostico == null){ continue;}
-                switch (pronosticoPersona.puntosPartido(partidoPronostico)){
-                    case 1:
-                        puntajeRonda+=1;
+                switch (pronosticoPersona.puntosPartido(partidoPronostico)) {
+                    case 1 -> {
+                        puntajeRonda += 1;
                         persona.addPronosticosAcertados(pronosticoPersona);
-                        break;
-                    case -1:
-                        rondaAcertada = false;
-                        break;
+                    }
+                    case -1 -> rondaAcertada = false;
                 }
             }
             if (rondaAcertada) {
@@ -102,7 +100,7 @@ public class Entrega2 {
     }
 
     /**
-     *  Esta clase fue unica y exclusivamente creada para realizar los Test, y responder a el entregable
+     *  Este metodo fue unico y exclusivamente creado para realizar los Test, y responder a el entregable
      * donde nos pide la puntuacion de dos rondas consecutivas, en este caso le damos la posibilidad de
      * sumar almenos una, y como maximo la cantidad de rondas disponibles.
      *
