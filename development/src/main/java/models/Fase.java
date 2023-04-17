@@ -2,12 +2,13 @@ package models;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class Fase {
+    // Atributos
     private int idFase;
     private String descripcion;
     private List<Ronda> rondas = new ArrayList<>();
 
+    //Constructores
     public Fase(int idFase, String descripcion) {
         this.idFase = idFase;
         this.descripcion = descripcion;
@@ -16,6 +17,7 @@ public class Fase {
     public Fase() {
     }
 
+    // Getters y setters
     public int getIdFase() {
         return idFase;
     }
@@ -31,7 +33,11 @@ public class Fase {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+    public void setRondas(List<Ronda> rondas) {
+        this.rondas = rondas;
+    }
 
+    //Comportamientos
     public List<Ronda> getRondas() {
         return rondas;
     }
@@ -39,10 +45,7 @@ public class Fase {
         this.rondas.add(ronda);
     }
 
-    public void setRondas(List<Ronda> rondas) {
-        this.rondas = rondas;
-    }
-
+    //Sobreescritura metodos clase Object
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

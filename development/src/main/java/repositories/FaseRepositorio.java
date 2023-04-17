@@ -9,7 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FaseRepositorio implements Convertible<Fase> {
-
+    /**
+     *  Este metodo parseara la data que proviene del .csv (en
+     *  array de String) y lo 'acoplara' un listado de Fases.
+     * @param itemsFile data de algun archivo .csv parseado a un arreglo de Strings.
+     * @return Un listado de Fases.
+     */
     @Override
     public List<Fase> getItems(String[] itemsFile) {
         int nroFase = 0, nroRonda = 0, aux = 0;

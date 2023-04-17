@@ -3,13 +3,16 @@ package models;
 import java.util.Objects;
 
 public class Equipo {
-
+    // Atributos
     private String nombre;
     private String descripcion;
+
+    //Constructores
     public Equipo(String nombre) {
         this.nombre = nombre;
     }
 
+    //Geterrs y setters
     public String getNombre() {
         return nombre;
     }
@@ -22,6 +25,7 @@ public class Equipo {
         return descripcion;
     }
 
+    //Sobreescritura metodos clase Object
     @Override
     public String toString() {
         return this.nombre;

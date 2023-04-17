@@ -13,8 +13,13 @@ import java.util.List;
 import java.util.Map;
 
 public class RondaRepositorio implements Convertible<Ronda> {
+    /**
+     *  Este metodo lo que hace es obtener un listado de Rondas, toda la
+     * data relacionada al .csv (en Array de String)
+     * @param itemsFile data de algun archivo .csv parseado a un arreglo de Strings.
+     * @return un Listado de Rondas.
+     */
     @Override
-    //Retorna las rondas jugadas a partir de los datos obtenidos.
     public List<Ronda> getItems(String[] itemsFile) {
         //Inicializamos variables de entrada.
         int nroRonda = -1;

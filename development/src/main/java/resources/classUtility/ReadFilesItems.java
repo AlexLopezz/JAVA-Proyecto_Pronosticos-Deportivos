@@ -8,7 +8,10 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
-//Clase creada para leer los archivos y limpiarlos.
+/**
+ *  Esta clase fue creada unica y exclusivamente para leer archivos .csv
+ * y 'parsearlos' a un array de String con toda la data almacenada.
+ */
 public class ReadFilesItems {
     private String rutaCSV;
 
@@ -27,7 +30,12 @@ public class ReadFilesItems {
         this.rutaCSV = rutaCSV;
     }
 
-    //Retorna el archivo leído dentro de un array de strings.
+    /**
+     *  Este metodo lo unico que hace es retornar la data del .csv
+     * pero en un array de Strings.
+     * @return Un array de strings
+     * @throws IOException lanza excepcion si no se le envia el 'path' o ruta para leer la data.
+     */
     public String[] getFileItems() throws IOException {
         if (rutaCSV != null) {
             //Para que la ruta me lea correctamente en sistemas operativos linux, debemos formatear la ruta.

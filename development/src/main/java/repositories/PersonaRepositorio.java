@@ -10,9 +10,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PersonaRepositorio implements Convertible<Persona> {
+    //Importante obtener la conexion a DB para realizar consultas.
     private Connection getConnection() throws SQLException {
         return ConexionDB.getInstance();
     }
+
+    /**
+     *  Este metodo almacenara en un listado de Personas, toda la data que
+     * provenga de un archivo .csv (en Array de String)
+     * @param itemsFile data de algun archivo .csv parseado a un arreglo de Strings.
+     * @return Un listado de personas en base a la data del .csv
+     */
     @Override
     public List<Persona> getItems(String[] itemsFile) {
         //Inicializamos variables de entradas.
@@ -52,6 +60,13 @@ public class PersonaRepositorio implements Convertible<Persona> {
         return auxPersonas;
     }
 
+    /**
+     *  Este metodo almcenara en un listado de personas, toda la data de
+     * la tabla 'Personas' la cual, proviene de la DB configurada.
+     * @return Un listado de personas.
+     * @throws SQLException lanzara esta excepcion si se escribio mal algun query u
+     * errores relacionados a SQL.
+     */
     public List<Persona> allPersonasDB () throws SQLException {
         List<Persona> personas = new ArrayList<>();
         int idPersona = 0;

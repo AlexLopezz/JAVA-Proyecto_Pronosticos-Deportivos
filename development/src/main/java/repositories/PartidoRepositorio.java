@@ -8,10 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PartidoRepositorio implements Convertible<Partido> {
+    /**
+     *  Ese metodo 'parseara' toda la data que provenga de un .csv (en
+     *  Array de String) y lo almacenara cada data en un listado de Partidos.
+     * @param itemsFile data de algun archivo .csv parseado a un arreglo de Strings.
+     * @return Un listado de Partidos.
+     */
     @Override
-    //Lee el archivo y devuelve una lista con todos los partidos del archivo.
     public List<Partido> getItems(String[] itemsFile) {
-        //Inicializamos variables de entrada.
         List<Partido> auxPartido = new ArrayList<>();
         int aux=0;
 

@@ -7,13 +7,15 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Persona implements Comparable {
+    // Atributos
     private int id;
     private String nombre;
     private int puntaje;
     private List<Pronostico> pronosticos = new ArrayList<>();
-    private List<Pronostico> pronosticosAcertados = new ArrayList<>();
+    private final List<Pronostico> pronosticosAcertados = new ArrayList<>();
     private Map<Ronda, Integer> puntajePorRonda = new HashMap<>();
 
+    //Constructores
     public Persona(String nombre){
         this.nombre = nombre;
     }
@@ -30,6 +32,7 @@ public class Persona implements Comparable {
         this.nombre = nombre;
     }
 
+    //Getters y setters
     public String getNombre() {
         return nombre;
     }
@@ -74,10 +77,6 @@ public class Persona implements Comparable {
         return pronosticosAcertados;
     }
 
-    public void addPronosticosAcertados(Pronostico pronosticoAcertado) {
-        this.pronosticosAcertados.add(pronosticoAcertado);
-    }
-
     public Map<Ronda, Integer> getPuntajePorRonda() {
         return puntajePorRonda;
     }
@@ -86,6 +85,12 @@ public class Persona implements Comparable {
         this.puntajePorRonda = puntajePorRonda;
     }
 
+    //Comportamientos
+    public void addPronosticosAcertados(Pronostico pronosticoAcertado) {
+        this.pronosticosAcertados.add(pronosticoAcertado);
+    }
+
+    //Sobreescritura metodos clase Object
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

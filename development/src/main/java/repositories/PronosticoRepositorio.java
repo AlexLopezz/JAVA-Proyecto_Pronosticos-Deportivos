@@ -13,11 +13,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PronosticoRepositorio implements Convertible<Pronostico> {
+    //Importante obtener la conexion a DB para realizar consultas.
     private Connection getConnection() throws SQLException {
         return ConexionDB.getInstance();
     }
+
+    /**
+     *  Este metodo almacenara en un listado de pronosticos, toda la data relacionada
+     * a pronosticos que provienen de un .csv (en Array de Strings).
+     * @param itemsFile data de algun archivo .csv parseado a un arreglo de Strings.
+     * @return Un listado de pronosticos.
+     */
     @Override
-    //Retorna la lista de pronosticos a partir de un array de strings.
     public List<Pronostico> getItems(String[] itemsFile) {
         //Inicializamos variables de entrada.
         List<Pronostico> auxPronosticos = new ArrayList<>();
@@ -47,37 +54,5 @@ public class PronosticoRepositorio implements Convertible<Pronostico> {
         }
         return auxPronosticos;
     }
-    public List<Pronostico> getPronosticoPersona(int id){
-        //Aqui almacenaremos los pronosticos de la persona.
-        List<Pronostico> auxPronostico = new ArrayList<>();
 
-        try(PreparedStatement stmt = getConnection()
-                .prepareStatement("""
-                        SELECT Pe.idPersona, Pe.nombre, Pr.idPronostico, Pa.idPartido, Pa.equipo1_FK, Pa.equipo2_FK, Pr.resultado
-                        FROM Pronostico as Pr\s
-                        inner join Partido as Pa on Pr.partido_fk = Pa.idPartido
-                        inner join Persona as Pe on Pr.persona_fk = Pe.idPersona
-                        where Pe.idPersona = ?
-                        order by Pe.idPersona;
-                        """)){
-            stmt.setInt(1,id); //Cambiamos el '?' de la query por el ID de la persona.
-
-            try(ResultSet rs = stmt.executeQuery()){ //Probamos ejecutar el query.
-                while (rs.next()){ //Mientras tenga filas la tabla del query iteraremos.
-                    //Rellenamos cada pronostico de la persona.
-                    auxPronostico.add(
-                            new Pronostico(rs.getInt("idPronostico"),
-                                    new Partido(rs.getInt("idPartido"),
-                                            new Equipo(rs.getString("equipo1_fk")),
-                                            new Equipo(rs.getString("equipo2_fk"))),
-                                    new Equipo(rs.getString("equipo1_fk")),
-                                    Utilities.checkResult(rs.getString("resultado")))
-                    );
-                }
-            }
-        }catch (SQLException s){
-            throw new RuntimeException(s.getMessage());
-        }
-        return auxPronostico;
-    }
 }

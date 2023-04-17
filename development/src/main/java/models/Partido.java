@@ -1,8 +1,6 @@
 package models;
-
-import java.util.Objects;
-
 public class Partido {
+    //Atributos
     private int id;
 
     private Equipo equipo1;
@@ -14,6 +12,7 @@ public class Partido {
     private int golesEquipo2;
     private Ronda ronda;
 
+    //Constructores
     public Partido(Equipo equipo1, Equipo equipo2, int golesEquipo1, int golesEquipo2) {
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
@@ -49,6 +48,7 @@ public class Partido {
         this.ronda = ronda;
     }
 
+    //Getters y setters
     public int getId() {
         return id;
     }
@@ -88,6 +88,14 @@ public class Partido {
     public void setGolesEquipo2(int golesEquipo2) {
         this.golesEquipo2 = golesEquipo2;
     }
+    public Ronda getRonda() {
+        return ronda;
+    }
+
+    public void setRonda(Ronda ronda) {
+        this.ronda = ronda;
+    }
+    //Comportamientos
     public ResultadoEnum resultado(Equipo equipo) {
         //Retorna el resultado del equipo que se pasó como argumento solo sí el equipo pertenece al encuentro.
         if(this.equipo1.equals(equipo)){
@@ -109,14 +117,8 @@ public class Partido {
         }
         return null;
     }
-    public Ronda getRonda() {
-        return ronda;
-    }
 
-    public void setRonda(Ronda ronda) {
-        this.ronda = ronda;
-    }
-
+    //Sobreescritura metodos clase Object
     @Override
     public boolean equals(Object o) {
         if(o instanceof Partido partido) {
@@ -125,7 +127,6 @@ public class Partido {
             return false;
         }
     }
-
     @Override
     public String toString() {
         return this.equipo1+"("+this.golesEquipo1+") vs ("+this.golesEquipo2+")"+this.equipo2;

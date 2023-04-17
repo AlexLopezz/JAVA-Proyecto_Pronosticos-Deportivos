@@ -1,17 +1,19 @@
 package models;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
+
 
 public class Pronostico {
+    //Atributos
     private int id;
     private Partido partido;
     private Equipo equipo;
     private ResultadoEnum resultado;
     private int idRonda;
     private int idFase;
+
+    //Constructores
 
     public Pronostico(Partido partido, Equipo equipo) {
         this.partido = partido;
@@ -48,6 +50,7 @@ public class Pronostico {
     public Pronostico() {
     }
 
+    //Getters y setters
     public Partido getPartido() {
         return partido;
     }
@@ -98,6 +101,7 @@ public class Pronostico {
         this.idFase = idFase;
     }
 
+    //Comportamientos
     public int puntos(List<Partido> partidos){
         //Evalua los partidos junto a sus pronosticos y devuelve el puntaje obtenido.
         int puntos = 0;
@@ -130,6 +134,7 @@ public class Pronostico {
         return this.resultado.equals(partido.resultado(partido.getEquipo1()));
     }
 
+    //Sobreescritura metodos clase Object
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

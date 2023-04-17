@@ -1,19 +1,17 @@
 package models;
 
-import exceptions.RondaException;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 public class Ronda implements Comparable {
+    //Atributos
     private int id;
     private String descripcion;
     private List<Partido> partidos;
     private Fase fase;
-    private Map<String, Integer> scoring = new HashMap<>();
 
+    //Constructores
     public Ronda(int id) {
         this.id = id;
         this.partidos = new ArrayList<>();
@@ -24,7 +22,6 @@ public class Ronda implements Comparable {
         this.descripcion = descripcion;
         this.partidos = new ArrayList<>();
     }
-
 
     public Ronda(int id, String descripcion, List<Partido> partidos, Fase fase) {
         this.id = id;
@@ -38,6 +35,7 @@ public class Ronda implements Comparable {
         this.partidos = partidos;
     }
 
+    //Getters y setters
     public int getId() {
         return id;
     }
@@ -70,19 +68,12 @@ public class Ronda implements Comparable {
         this.partidos = partidos;
     }
 
+    //Comportamientos
     public void addPartido(Partido partido){
         this.partidos.add(partido);
     }
-    //Evalua los pronosticos de las personas con los partidos, setea el puntaje y guarda los pronosticos acertados.
 
-    public Map<String, Integer> getScoring() {
-        return scoring;
-    }
-
-    public void setScoring(Map<String, Integer> scoring) {
-        this.scoring = scoring;
-    }
-
+    //Sobreescritura metodos clase Object
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
