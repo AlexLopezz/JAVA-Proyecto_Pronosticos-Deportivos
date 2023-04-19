@@ -13,11 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PronosticoRepositorio implements Convertible<Pronostico> {
-    //Importante obtener la conexion a DB para realizar consultas.
-    private Connection getConnection() throws SQLException {
-        return ConexionDB.getInstance();
-    }
-
     /**
      *  Este metodo almacenara en un listado de pronosticos, toda la data relacionada
      * a pronosticos que provienen de un .csv (en Array de Strings).
@@ -31,7 +26,7 @@ public class PronosticoRepositorio implements Convertible<Pronostico> {
         int aux = 0;
 
         //Iteramos los datos recibidos.
-        for(int i=0; i< itemsFile.length - aux; i++){
+        for(int i=0; i< itemsFile.length / 5; i++){
             if(i != 0) {
                 auxPronosticos.add(
                         new Pronostico(

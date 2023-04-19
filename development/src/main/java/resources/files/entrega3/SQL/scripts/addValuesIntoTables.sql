@@ -110,6 +110,8 @@ values
 (21, 'Croacia', 'Ganador', 1),
 -- Final
 (22, 'Argentina', 'Ganador', 1),
+
+
 -- Fase de grupos
 (1, 'Argentina', 'Empate', 2),
 (2, 'Mexico', 'Empate', 2),

@@ -19,7 +19,7 @@ public class PartidoRepositorio implements Convertible<Partido> {
         List<Partido> auxPartido = new ArrayList<>();
         int aux=0;
 
-        for(int i=0; i < itemsFile.length - aux; i++) {
+        for(int i=0; i < itemsFile.length / 4; i++) {
             if( i != 0) {
                 auxPartido.add(
                         new Partido(

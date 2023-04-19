@@ -53,10 +53,6 @@ public class Persona implements Comparable {
         this.puntaje += puntaje;
     }
 
-    public void addPronostico (Pronostico pronostico){
-        this.pronosticos.add(pronostico);
-    }
-
     public int getId() {
         return id;
     }
@@ -88,6 +84,10 @@ public class Persona implements Comparable {
     //Comportamientos
     public void addPronosticosAcertados(Pronostico pronosticoAcertado) {
         this.pronosticosAcertados.add(pronosticoAcertado);
+    }
+
+    public void addPronostico (Pronostico pronostico){
+        this.pronosticos.add(pronostico);
     }
 
     //Sobreescritura metodos clase Object
